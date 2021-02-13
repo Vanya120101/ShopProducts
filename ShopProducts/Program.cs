@@ -15,6 +15,11 @@ namespace ShopProducts
         [STAThread]
         static void Main()
         {
+
+            var location = System.Reflection.Assembly.GetExecutingAssembly().Location;
+            var directory = System.IO.Path.GetDirectoryName(location);
+            var path = System.IO.Path.Combine(directory + "\\Models\\DatabaseForShopProducts.mdf");
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new ShopProductsMainForm());
