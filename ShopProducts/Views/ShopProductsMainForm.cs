@@ -15,6 +15,7 @@ namespace ShopProducts.Views
         public ShopProductsMainForm()
         {
             InitializeComponent();
+
         }
     }
 }
