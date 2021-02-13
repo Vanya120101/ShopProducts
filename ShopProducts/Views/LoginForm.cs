@@ -41,6 +41,7 @@ namespace ShopProducts.Views
             if (PasswordBox.Text == "Введите пароль")
             {
                 this.PasswordBox.Text = "";
+                this.PasswordBox.UseSystemPasswordChar = true;
                 this.PasswordBox.ForeColor = Color.Black;
             }
         }
@@ -50,6 +51,7 @@ namespace ShopProducts.Views
             if (string.IsNullOrEmpty(PasswordBox.Text))
             {
                 this.PasswordBox.Text = "Введите пароль";
+                this.PasswordBox.UseSystemPasswordChar = false;
                 this.PasswordBox.ForeColor = Color.Silver;
             }
         }
