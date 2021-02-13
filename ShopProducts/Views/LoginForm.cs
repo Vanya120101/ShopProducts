@@ -8,14 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ShopProducts.Views.Controlls
+namespace ShopProducts.Views
 {
-    public partial class CartControl : UserControl
+    public partial class LoginForm : Form
     {
-        public CartControl()
+        public LoginForm()
         {
             InitializeComponent();
-           
         }
     }
 }

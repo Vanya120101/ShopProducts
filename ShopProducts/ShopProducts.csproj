@@ -95,6 +95,17 @@
     <Compile Include="Views\Controlls\UpdateControl.Designer.cs">
       <DependentUpon>UpdateControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Interfaces\ICartControl.cs" />
+    <Compile Include="Views\Interfaces\IDeleteControl.cs" />
+    <Compile Include="Views\Interfaces\IInsertControl.cs" />
+    <Compile Include="Views\Interfaces\ISelectControl.cs" />
+    <Compile Include="Views\Interfaces\IUpdateControl.cs" />
+    <Compile Include="Views\LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\ShopProductsMainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -124,6 +135,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Controlls\UpdateControl.resx">
       <DependentUpon>UpdateControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\ShopProductsMainForm.resx">
       <DependentUpon>ShopProductsMainForm.cs</DependentUpon>
