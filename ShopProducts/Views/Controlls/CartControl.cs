@@ -14,6 +14,7 @@ namespace ShopProducts.Views.Controlls
 {
     public partial class CartControl : UserControl
     {
+        int i = 0;
         public CartControl()
         {
             InitializeComponent();
@@ -22,11 +23,26 @@ namespace ShopProducts.Views.Controlls
 
         private  void AddCartProductButton_Click(object sender, EventArgs e)
         {
+            if (i == 0)
+            {
+                this.UserProductsTable.DataSource = LoadOperationModel.Users;
 
-            this.UserProductsTable.DataSource = LoadOperationModel.Users;
-            UserProductsTable.Columns[0].Visible = false;
+            }
 
-            UserProductsTable.Columns[3].Visible = false;
+            if (i == 1)
+            {
+                this.UserProductsTable.DataSource = LoadOperationModel.Products;
+
+            }
+
+            if (i == 2)
+            {
+                this.UserProductsTable.DataSource = LoadOperationModel.Orders;
+
+            }
+
+            i++;
+
 
         }
     }
