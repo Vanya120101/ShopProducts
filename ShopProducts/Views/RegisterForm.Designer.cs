@@ -34,10 +34,10 @@ namespace ShopProducts.Views
             this.LoginBox = new System.Windows.Forms.TextBox();
             this.ExitButton = new System.Windows.Forms.Button();
             this.RegisterButton = new System.Windows.Forms.Button();
-            this.SecondNameBox = new System.Windows.Forms.TextBox();
-            this.FirstNameBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.RepeatPasswordBox = new System.Windows.Forms.TextBox();
+            this.ErrorLabel = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -45,12 +45,11 @@ namespace ShopProducts.Views
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.panel2.Controls.Add(this.RepeatPasswordBox);
             this.panel2.Controls.Add(this.PasswordBox);
             this.panel2.Controls.Add(this.LoginBox);
             this.panel2.Controls.Add(this.ExitButton);
             this.panel2.Controls.Add(this.RegisterButton);
-            this.panel2.Controls.Add(this.SecondNameBox);
-            this.panel2.Controls.Add(this.FirstNameBox);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 100);
             this.panel2.Name = "panel2";
@@ -61,7 +60,7 @@ namespace ShopProducts.Views
             // 
             this.PasswordBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.PasswordBox.ForeColor = System.Drawing.Color.Silver;
-            this.PasswordBox.Location = new System.Drawing.Point(170, 124);
+            this.PasswordBox.Location = new System.Drawing.Point(91, 74);
             this.PasswordBox.Name = "PasswordBox";
             this.PasswordBox.Size = new System.Drawing.Size(200, 34);
             this.PasswordBox.TabIndex = 6;
@@ -74,9 +73,9 @@ namespace ShopProducts.Views
             // 
             this.LoginBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.LoginBox.ForeColor = System.Drawing.Color.Silver;
-            this.LoginBox.Location = new System.Drawing.Point(12, 124);
+            this.LoginBox.Location = new System.Drawing.Point(91, 23);
             this.LoginBox.Name = "LoginBox";
-            this.LoginBox.Size = new System.Drawing.Size(152, 34);
+            this.LoginBox.Size = new System.Drawing.Size(200, 34);
             this.LoginBox.TabIndex = 5;
             this.LoginBox.Tag = "логин";
             this.LoginBox.Text = "Введите логин";
@@ -112,39 +111,13 @@ namespace ShopProducts.Views
             this.RegisterButton.UseVisualStyleBackColor = true;
             this.RegisterButton.Click += new System.EventHandler(this.RegisterButton_Click);
             // 
-            // SecondNameBox
-            // 
-            this.SecondNameBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.SecondNameBox.ForeColor = System.Drawing.Color.Silver;
-            this.SecondNameBox.Location = new System.Drawing.Point(12, 77);
-            this.SecondNameBox.Name = "SecondNameBox";
-            this.SecondNameBox.Size = new System.Drawing.Size(358, 34);
-            this.SecondNameBox.TabIndex = 2;
-            this.SecondNameBox.Tag = "фамилию";
-            this.SecondNameBox.Text = "Введите фамилию";
-            this.SecondNameBox.Enter += new System.EventHandler(this.TextBox_EnterLeave);
-            this.SecondNameBox.Leave += new System.EventHandler(this.TextBox_EnterLeave);
-            // 
-            // FirstNameBox
-            // 
-            this.FirstNameBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.FirstNameBox.ForeColor = System.Drawing.Color.Silver;
-            this.FirstNameBox.Location = new System.Drawing.Point(12, 30);
-            this.FirstNameBox.Name = "FirstNameBox";
-            this.FirstNameBox.Size = new System.Drawing.Size(358, 34);
-            this.FirstNameBox.TabIndex = 0;
-            this.FirstNameBox.Tag = "имя";
-            this.FirstNameBox.Text = "Введите имя";
-            this.FirstNameBox.Enter += new System.EventHandler(this.TextBox_EnterLeave);
-            this.FirstNameBox.Leave += new System.EventHandler(this.TextBox_EnterLeave);
-            // 
             // label3
             // 
-            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label3.Dock = System.Windows.Forms.DockStyle.Top;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label3.Location = new System.Drawing.Point(0, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(382, 100);
+            this.label3.Size = new System.Drawing.Size(382, 50);
             this.label3.TabIndex = 0;
             this.label3.Text = "Регистрация";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -152,12 +125,37 @@ namespace ShopProducts.Views
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.panel1.Controls.Add(this.ErrorLabel);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(382, 100);
             this.panel1.TabIndex = 2;
+            // 
+            // RepeatPasswordBox
+            // 
+            this.RepeatPasswordBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.RepeatPasswordBox.ForeColor = System.Drawing.Color.Silver;
+            this.RepeatPasswordBox.Location = new System.Drawing.Point(91, 125);
+            this.RepeatPasswordBox.Name = "RepeatPasswordBox";
+            this.RepeatPasswordBox.Size = new System.Drawing.Size(200, 34);
+            this.RepeatPasswordBox.TabIndex = 7;
+            this.RepeatPasswordBox.Tag = "пароль";
+            this.RepeatPasswordBox.Text = "Введите пароль";
+            this.RepeatPasswordBox.Enter += new System.EventHandler(this.PasswordBox_Enter);
+            this.RepeatPasswordBox.Leave += new System.EventHandler(this.PasswordBox_Leave);
+            // 
+            // ErrorLabel
+            // 
+            this.ErrorLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ErrorLabel.ForeColor = System.Drawing.Color.Red;
+            this.ErrorLabel.Location = new System.Drawing.Point(0, 50);
+            this.ErrorLabel.Name = "ErrorLabel";
+            this.ErrorLabel.Size = new System.Drawing.Size(382, 50);
+            this.ErrorLabel.TabIndex = 1;
+            this.ErrorLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.ErrorLabel.Visible = false;
             // 
             // RegisterForm
             // 
@@ -182,9 +180,9 @@ namespace ShopProducts.Views
         private System.Windows.Forms.TextBox LoginBox;
         private System.Windows.Forms.Button ExitButton;
         private System.Windows.Forms.Button RegisterButton;
-        private System.Windows.Forms.TextBox SecondNameBox;
-        private System.Windows.Forms.TextBox FirstNameBox;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.TextBox RepeatPasswordBox;
+        private System.Windows.Forms.Label ErrorLabel;
     }
 }

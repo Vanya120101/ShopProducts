@@ -46,22 +46,24 @@ namespace ShopProducts.Views
 
         private void PasswordBox_Leave(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(PasswordBox.Text))
+            TextBox passwordBox = sender as TextBox;
+
+            if (string.IsNullOrEmpty(passwordBox.Text))
             {
-                this.PasswordBox.Text = "Введите пароль";
-                this.PasswordBox.UseSystemPasswordChar = false;
-                this.PasswordBox.ForeColor = Color.Silver;
+                passwordBox.Text = "Введите пароль";
+                passwordBox.UseSystemPasswordChar = false;
+                passwordBox.ForeColor = Color.Silver;
             }
         }
 
         private void PasswordBox_Enter(object sender, EventArgs e)
         {
-           
-            if (PasswordBox.Text == "Введите пароль")
+            TextBox passwordBox = sender as TextBox;
+            if (passwordBox.Text == "Введите пароль")
             {
-                this.PasswordBox.Text = "";
-                this.PasswordBox.UseSystemPasswordChar = true;
-                this.PasswordBox.ForeColor = Color.Black;
+                passwordBox.Text = "";
+                passwordBox.UseSystemPasswordChar = true;
+                passwordBox.ForeColor = Color.Black;
             }
 
         }

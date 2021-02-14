@@ -32,10 +32,11 @@ namespace ShopProducts.Views
             this.panel1 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.RegisterButton = new System.Windows.Forms.Button();
+            this.EnterButton = new System.Windows.Forms.Button();
             this.PasswordBox = new System.Windows.Forms.TextBox();
             this.LoginBox = new System.Windows.Forms.TextBox();
-            this.EnterButton = new System.Windows.Forms.Button();
-            this.RegisterButton = new System.Windows.Forms.Button();
+            this.ErrorLabel = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -43,6 +44,7 @@ namespace ShopProducts.Views
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.panel1.Controls.Add(this.ErrorLabel);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -52,11 +54,11 @@ namespace ShopProducts.Views
             // 
             // label3
             // 
-            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label3.Dock = System.Windows.Forms.DockStyle.Top;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label3.Location = new System.Drawing.Point(0, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(382, 100);
+            this.label3.Size = new System.Drawing.Size(382, 50);
             this.label3.TabIndex = 0;
             this.label3.Text = "Авторизация";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -73,6 +75,34 @@ namespace ShopProducts.Views
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(382, 253);
             this.panel2.TabIndex = 1;
+            // 
+            // RegisterButton
+            // 
+            this.RegisterButton.AutoSize = true;
+            this.RegisterButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.RegisterButton.FlatAppearance.BorderSize = 0;
+            this.RegisterButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RegisterButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.RegisterButton.Location = new System.Drawing.Point(91, 212);
+            this.RegisterButton.Name = "RegisterButton";
+            this.RegisterButton.Size = new System.Drawing.Size(200, 41);
+            this.RegisterButton.TabIndex = 4;
+            this.RegisterButton.Text = "Регистрация";
+            this.RegisterButton.UseVisualStyleBackColor = true;
+            // 
+            // EnterButton
+            // 
+            this.EnterButton.AutoSize = true;
+            this.EnterButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.EnterButton.FlatAppearance.BorderSize = 0;
+            this.EnterButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.EnterButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.EnterButton.Location = new System.Drawing.Point(91, 161);
+            this.EnterButton.Name = "EnterButton";
+            this.EnterButton.Size = new System.Drawing.Size(200, 41);
+            this.EnterButton.TabIndex = 3;
+            this.EnterButton.Text = "Вход";
+            this.EnterButton.UseVisualStyleBackColor = true;
             // 
             // PasswordBox
             // 
@@ -98,33 +128,17 @@ namespace ShopProducts.Views
             this.LoginBox.Enter += new System.EventHandler(this.LoginBox_Enter);
             this.LoginBox.Leave += new System.EventHandler(this.LoginBox_Leave);
             // 
-            // EnterButton
+            // ErrorLabel
             // 
-            this.EnterButton.AutoSize = true;
-            this.EnterButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.EnterButton.FlatAppearance.BorderSize = 0;
-            this.EnterButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.EnterButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.EnterButton.Location = new System.Drawing.Point(91, 161);
-            this.EnterButton.Name = "EnterButton";
-            this.EnterButton.Size = new System.Drawing.Size(200, 41);
-            this.EnterButton.TabIndex = 3;
-            this.EnterButton.Text = "Вход";
-            this.EnterButton.UseVisualStyleBackColor = true;
-            // 
-            // RegisterButton
-            // 
-            this.RegisterButton.AutoSize = true;
-            this.RegisterButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.RegisterButton.FlatAppearance.BorderSize = 0;
-            this.RegisterButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RegisterButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.RegisterButton.Location = new System.Drawing.Point(91, 212);
-            this.RegisterButton.Name = "RegisterButton";
-            this.RegisterButton.Size = new System.Drawing.Size(200, 41);
-            this.RegisterButton.TabIndex = 4;
-            this.RegisterButton.Text = "Регистрация";
-            this.RegisterButton.UseVisualStyleBackColor = true;
+            this.ErrorLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ErrorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ErrorLabel.ForeColor = System.Drawing.Color.Red;
+            this.ErrorLabel.Location = new System.Drawing.Point(0, 50);
+            this.ErrorLabel.Name = "ErrorLabel";
+            this.ErrorLabel.Size = new System.Drawing.Size(382, 50);
+            this.ErrorLabel.TabIndex = 1;
+            this.ErrorLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.ErrorLabel.Visible = false;
             // 
             // LoginForm
             // 
@@ -151,5 +165,6 @@ namespace ShopProducts.Views
         private System.Windows.Forms.TextBox LoginBox;
         private System.Windows.Forms.Button RegisterButton;
         private System.Windows.Forms.Button EnterButton;
+        private System.Windows.Forms.Label ErrorLabel;
     }
 }
