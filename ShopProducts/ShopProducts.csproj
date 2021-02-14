@@ -63,6 +63,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\BaseOperationModel.cs" />
+    <Compile Include="Models\DataContext.cs" />
     <Compile Include="Views\Controlls\DeleteControl.cs">
       <SubType>UserControl</SubType>
     </Compile>

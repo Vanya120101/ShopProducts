@@ -1,7 +1,9 @@
-﻿using System;
+﻿using ShopProducts.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -16,6 +18,12 @@ namespace ShopProducts.Views.Controlls
         {
             InitializeComponent();
            
+        }
+
+        private  void AddCartProductButton_Click(object sender, EventArgs e)
+        {
+
+            this.UserProductsTable.DataSource = BaseOperationModel.Users;
         }
     }
 }

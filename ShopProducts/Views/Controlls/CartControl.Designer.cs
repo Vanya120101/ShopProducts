@@ -95,6 +95,7 @@ namespace ShopProducts.Views.Controlls
             this.AddCartProductButton.Text = "Добавить в корзину";
             this.AddCartProductButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.AddCartProductButton.UseVisualStyleBackColor = true;
+            this.AddCartProductButton.Click += new System.EventHandler(this.AddCartProductButton_Click);
             // 
             // NameProductBox
             // 

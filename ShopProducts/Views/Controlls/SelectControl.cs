@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ShopProducts.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,10 @@ namespace ShopProducts.Views.Controlls
         public SelectControl()
         {
             InitializeComponent();
+
+            this.ProductsTable.DataSource = BaseOperationModel.Users;
         }
+
+
     }
 }

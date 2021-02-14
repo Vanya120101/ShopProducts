@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -7,13 +8,17 @@ using System.Threading.Tasks;
 
 namespace ShopProducts.Models
 {
-    class DataContext
+    static class DataContext
     {
-        public DataContext()
+        private static SqlConnection sqlConnection;
+        
+        static DataContext()
         {
+            string connectionString = GetConnectionString();
+            sqlConnection = new SqlConnection(connectionString);
         }
 
-        private string CreatePath()
+        private static string GetPath()
         {
             var location = System.Reflection.Assembly.GetExecutingAssembly().Location;
             var directory = System.IO.Path.GetDirectoryName(location);
@@ -22,21 +27,42 @@ namespace ShopProducts.Models
             return path;
         }
 
-        private string GetStringConnection()
+        public static string GetConnectionString()
         {
-            SqlConnectionStringBuilder stringBuilder = new SqlConnectionStringBuilder();
+            SqlConnectionStringBuilder sqlConnectionStringBuilder = new SqlConnectionStringBuilder();
+            sqlConnectionStringBuilder.DataSource = @"(LocalDB)\MSSQLLocalDB";
+            sqlConnectionStringBuilder.AttachDBFilename = GetPath();
+            sqlConnectionStringBuilder.IntegratedSecurity = true;
 
-            stringBuilder.AttachDBFilename = CreatePath();
-            stringBuilder.DataSource = @"(LocalDB)\MSSQLLocalDB";
-            stringBuilder.IntegratedSecurity = true;
-
-            return stringBuilder.ConnectionString;
-
+            return sqlConnectionStringBuilder.ConnectionString;
         }
 
-        public void OpenConnection()
+        public static bool OpenConnection()
         {
 
+            if (sqlConnection.State == ConnectionState.Closed)
+            {
+                sqlConnection.Open();
+                return true;
+            }
+
+            return false;
+        }
+
+        public static bool CloseConnection()
+        {
+            if (sqlConnection.State == ConnectionState.Open)
+            {
+                sqlConnection.Close();
+                return true;
+
+            }
+            return false;
+        }
+
+        public static SqlConnection GetConnection()
+        {
+            return sqlConnection;
         }
     }
 }
