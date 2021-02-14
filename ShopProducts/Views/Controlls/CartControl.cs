@@ -23,7 +23,11 @@ namespace ShopProducts.Views.Controlls
         private  void AddCartProductButton_Click(object sender, EventArgs e)
         {
 
-            this.UserProductsTable.DataSource = BaseOperationModel.Users;
+            this.UserProductsTable.DataSource = LoadOperationModel.Users;
+            UserProductsTable.Columns[0].Visible = false;
+
+            UserProductsTable.Columns[3].Visible = false;
+
         }
     }
 }

@@ -37,27 +37,22 @@ namespace ShopProducts.Models
             return sqlConnectionStringBuilder.ConnectionString;
         }
 
-        public static bool OpenConnection()
+        public async static void OpenConnection()
         {
 
             if (sqlConnection.State == ConnectionState.Closed)
             {
-                sqlConnection.Open();
-                return true;
+                await sqlConnection.OpenAsync();
             }
 
-            return false;
         }
 
-        public static bool CloseConnection()
+        public  static void CloseConnection()
         {
             if (sqlConnection.State == ConnectionState.Open)
             {
                 sqlConnection.Close();
-                return true;
-
             }
-            return false;
         }
 
         public static SqlConnection GetConnection()

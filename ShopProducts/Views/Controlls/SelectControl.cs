@@ -17,9 +17,10 @@ namespace ShopProducts.Views.Controlls
         {
             InitializeComponent();
 
-            this.ProductsTable.DataSource = BaseOperationModel.Users;
+            this.ProductsTable.DataSource = LoadOperationModel.Users;
         }
 
+        
 
     }
 }
