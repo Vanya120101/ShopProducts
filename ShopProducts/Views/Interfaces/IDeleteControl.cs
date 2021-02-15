@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace ShopProducts.Views.Interfaces
 {
-    interface IDeleteControl
+    interface IDeleteControl : IBaseForm
     {
+        int ID { get; set; }
+
+        event Action Delete;
+        void Update();
     }
 }

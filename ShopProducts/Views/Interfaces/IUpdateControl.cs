@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace ShopProducts.Views.Interfaces
 {
-    interface IUpdateControl
+    interface IUpdateControl : IBaseForm
     {
+        int ProductsID { get; set; }
+        string ProductsName { get; set; }
+        int ProductsQuantity { get; set; }
+        int ProductsPrice { get; set; }
+        event Action UpdateProduct;
+        void Update();
     }
 }

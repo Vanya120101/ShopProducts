@@ -1,15 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace ShopProducts.Views.Interfaces
 {
-    interface ISelectControl : IBaseForm
+    interface IBaseForm
     {
-        DataTable Products { get; set; }
+        void ShowError(string errorMessage);
         void Update();
     }
 }

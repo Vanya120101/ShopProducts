@@ -6,14 +6,15 @@ using System.Threading.Tasks;
 
 namespace ShopProducts.Views.Interfaces
 {
-    interface ICartControl
+    interface ICartControl : IBaseForm
     {
-        string NameProduct { get; set; }
-        string Quintity { get; set; }
-        object UsersProducts { get; set; }
+        string ProductsName { get; set; }
+        string ProductsQuintity { get; set; }
+        object UsersOrders { get; set; }
 
         event Action AddIntoCart;
         event Action Update;
+        
 
     }
 }

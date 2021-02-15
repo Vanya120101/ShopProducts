@@ -35,6 +35,8 @@ namespace ShopProducts.Views.Controlls
             this.NameAddProductBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.ErrorLabel = new System.Windows.Forms.Label();
+            this.QuantityBox = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // AddProductButton
@@ -44,7 +46,7 @@ namespace ShopProducts.Views.Controlls
             this.AddProductButton.FlatAppearance.BorderSize = 0;
             this.AddProductButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddProductButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.AddProductButton.Location = new System.Drawing.Point(30, 100);
+            this.AddProductButton.Location = new System.Drawing.Point(30, 140);
             this.AddProductButton.Name = "AddProductButton";
             this.AddProductButton.Size = new System.Drawing.Size(133, 41);
             this.AddProductButton.TabIndex = 16;
@@ -55,7 +57,7 @@ namespace ShopProducts.Views.Controlls
             // PriceAddProductBox
             // 
             this.PriceAddProductBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.PriceAddProductBox.Location = new System.Drawing.Point(180, 60);
+            this.PriceAddProductBox.Location = new System.Drawing.Point(180, 100);
             this.PriceAddProductBox.Name = "PriceAddProductBox";
             this.PriceAddProductBox.Size = new System.Drawing.Size(100, 34);
             this.PriceAddProductBox.TabIndex = 15;
@@ -63,7 +65,7 @@ namespace ShopProducts.Views.Controlls
             // label3
             // 
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(30, 60);
+            this.label3.Location = new System.Drawing.Point(30, 100);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(72, 29);
             this.label3.TabIndex = 14;
@@ -98,11 +100,31 @@ namespace ShopProducts.Views.Controlls
             this.ErrorLabel.Size = new System.Drawing.Size(0, 29);
             this.ErrorLabel.TabIndex = 26;
             // 
+            // QuantityBox
+            // 
+            this.QuantityBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.QuantityBox.Location = new System.Drawing.Point(180, 60);
+            this.QuantityBox.Name = "QuantityBox";
+            this.QuantityBox.Size = new System.Drawing.Size(100, 34);
+            this.QuantityBox.TabIndex = 28;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.Location = new System.Drawing.Point(30, 60);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(152, 29);
+            this.label2.TabIndex = 27;
+            this.label2.Text = "Количество";
+            // 
             // InsertControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.QuantityBox);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.ErrorLabel);
             this.Controls.Add(this.AddProductButton);
             this.Controls.Add(this.PriceAddProductBox);
@@ -124,5 +146,7 @@ namespace ShopProducts.Views.Controlls
         private System.Windows.Forms.TextBox NameAddProductBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label ErrorLabel;
+        private System.Windows.Forms.TextBox QuantityBox;
+        private System.Windows.Forms.Label label2;
     }
 }

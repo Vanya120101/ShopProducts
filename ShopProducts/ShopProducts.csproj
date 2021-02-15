@@ -97,9 +97,12 @@
     <Compile Include="Views\Controlls\UpdateControl.Designer.cs">
       <DependentUpon>UpdateControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Interfaces\IBaseForm.cs" />
     <Compile Include="Views\Interfaces\ICartControl.cs" />
     <Compile Include="Views\Interfaces\IDeleteControl.cs" />
     <Compile Include="Views\Interfaces\IInsertControl.cs" />
+    <Compile Include="Views\Interfaces\ILoginForm.cs" />
+    <Compile Include="Views\Interfaces\IRegisterForm.cs" />
     <Compile Include="Views\Interfaces\ISelectControl.cs" />
     <Compile Include="Views\Interfaces\IUpdateControl.cs" />
     <Compile Include="Views\RegisterForm.cs">
@@ -119,6 +122,12 @@
     </Compile>
     <Compile Include="Views\ShopProductsMainForm.Designer.cs">
       <DependentUpon>ShopProductsMainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TestView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\TestView.Designer.cs">
+      <DependentUpon>TestView.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Views\Controlls\DeleteControl.resx">
       <DependentUpon>DeleteControl.cs</DependentUpon>
