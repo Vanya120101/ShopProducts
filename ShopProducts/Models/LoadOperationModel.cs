@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ShopProducts.Models.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -8,18 +9,18 @@ using System.Threading.Tasks;
 
 namespace ShopProducts.Models
 {
-    static class LoadOperationModel
+    class LoadOperationModel : ILoadOperationModel
     {
         private static DataSet shopDataSet;
-        public static DataTable Users
+        public  object Users
         {
             get { return shopDataSet.Tables["Users"]; }
         }
-        public static DataTable Products
+        public  object Products
         {
             get { return shopDataSet.Tables["Products"]; }
         }
-        public static DataTable Orders
+        public  object Orders
         {
             get { return shopDataSet.Tables["Orders"]; }
         }
@@ -31,7 +32,7 @@ namespace ShopProducts.Models
 
         }
 
-        private async static void LoadData()
+        private  static void LoadData()
         {
             string sqlCommandString = "SELECT * FROM Users; SELECT * FROM Products; SELECT * FROM Orders";
             SqlCommand sqlCommand = new SqlCommand(sqlCommandString, DataContext.GetConnection());

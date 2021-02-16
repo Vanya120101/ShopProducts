@@ -28,6 +28,7 @@ namespace ShopProducts.Views
 
         public event Action EnterAccount;
         public event Action Register;
+        public event Action CloseForm;
 
         public void ShowError(string errorMessage)
         {

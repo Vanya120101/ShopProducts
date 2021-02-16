@@ -19,7 +19,6 @@ namespace ShopProducts.Views.Controlls
         public CartControl()
         {
             InitializeComponent();
-           
         }
         #endregion
 
