@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ShopProducts.Views.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,13 +11,36 @@ using System.Windows.Forms;
 
 namespace ShopProducts.Views
 {
-    public partial class LoginForm : Form
+    public partial class LoginForm : Form, ILoginForm
     {
+
+        #region Constructors
         public LoginForm()
         {
             InitializeComponent();
         }
+        #endregion
 
+
+        #region ILoginForm
+        public string UsersLogin { get => this.LoginBox.Text; set => this.LoginBox.Text = value; }
+        public string UsersPassword { get => this.PasswordBox.Text; set => this.PasswordBox.Text = value; }
+
+        public event Action Register;
+        public event Action EnterAccount;
+        
+        public void ShowError(string errorMessage)
+        {
+            this.ErrorLabel.Text = errorMessage;
+        }
+        public void UpdateForm()
+        {
+        }
+
+        #endregion
+
+
+        #region Methods
         private void LoginBox_Enter(object sender, EventArgs e)
         {
             if (LoginBox.Text== "Введите логин")
@@ -55,5 +79,17 @@ namespace ShopProducts.Views
                 this.PasswordBox.ForeColor = Color.Silver;
             }
         }
+        private void EnterButton_Click(object sender, EventArgs e)
+        {
+            EnterAccount?.Invoke();
+        }
+
+        private void RegisterButton_Click(object sender, EventArgs e)
+        {
+            Register?.Invoke();
+        }
+
+        #endregion
+
     }
 }

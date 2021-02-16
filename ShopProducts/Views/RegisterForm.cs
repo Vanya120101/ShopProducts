@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ShopProducts.Views.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,15 +11,36 @@ using System.Windows.Forms;
 
 namespace ShopProducts.Views
 {
-    public partial class RegisterForm : Form
+    public partial class RegisterForm : Form, IRegisterForm
     {
+        #region Constructs
         public RegisterForm()
         {
             InitializeComponent();
         }
+        #endregion
 
-      
 
+        #region IRegisterForm
+        public string UsersLogin { get => this.LoginBox.Text; set => this.LoginBox.Text = value; }
+        public string UsersPasswrod { get => this.PasswordBox.Text; set => this.PasswordBox.Text = value; }
+        public string UsersRepeatedPassword { get => this.RepeatPasswordBox.Text; set => this.RepeatPasswordBox.Text = value; }
+
+        public event Action EnterAccount;
+        public event Action Register;
+
+        public void ShowError(string errorMessage)
+        {
+            this.ErrorLabel.Text = errorMessage;
+        }
+
+        public void UpdateForm()
+        {
+        }
+        #endregion
+
+
+        #region Methods
         private void TextBox_EnterLeave(object sender, EventArgs e)
         {
             TextBox textBox = sender as TextBox;
@@ -33,15 +55,15 @@ namespace ShopProducts.Views
             {
                 textBox.Text = finalString;
                 textBox.ForeColor = Color.Silver;
-             }
+            }
 
-           
+
         }
 
 
         private void RegisterButton_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(PasswordBox.Text);
+            Register?.Invoke();
         }
 
         private void PasswordBox_Leave(object sender, EventArgs e)
@@ -67,5 +89,15 @@ namespace ShopProducts.Views
             }
 
         }
+
+       
+        private void EnterButton_Click(object sender, EventArgs e)
+        {
+            EnterAccount?.Invoke();
+        }
+
+       
+        #endregion
+
     }
 }

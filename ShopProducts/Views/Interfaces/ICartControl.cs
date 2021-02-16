@@ -9,11 +9,10 @@ namespace ShopProducts.Views.Interfaces
     interface ICartControl : IBaseForm
     {
         string ProductsName { get; set; }
-        string ProductsQuintity { get; set; }
+        int ProductsQuintity { get; set; }
         object UsersOrders { get; set; }
 
         event Action AddIntoCart;
-        event Action Update;
         
 
     }

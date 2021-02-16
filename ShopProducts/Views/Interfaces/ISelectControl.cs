@@ -9,7 +9,7 @@ namespace ShopProducts.Views.Interfaces
 {
     interface ISelectControl : IBaseForm
     {
-        DataTable Products { get; set; }
+        object Products { get; set; }
         void Update();
     }
 }

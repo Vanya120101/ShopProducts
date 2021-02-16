@@ -11,7 +11,7 @@ namespace ShopProducts.Views.Interfaces
         string UsersLogin { get; set; }
         string UsersPassword { get; set; }
 
-        event Action Enter;
+        event Action EnterAccount;
         event Action Register;
     }
 }

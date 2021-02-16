@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ShopProducts.Views.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,11 +11,80 @@ using System.Windows.Forms;
 
 namespace ShopProducts.Views.Controlls
 {
-    public partial class UpdateControl : UserControl
+    public partial class UpdateControl : UserControl, IUpdateControl
     {
+        #region Constructs
         public UpdateControl()
         {
             InitializeComponent();
         }
+        #endregion
+        #region IUpdateControl
+        public int ProductsID
+        {
+            get
+            {
+                if (int.TryParse(this.ProductsIdBox.Text, out int Id))
+                {
+                    return Id;
+                }
+                return -1;
+            }
+            set
+            {
+                this.ProductsIdBox.Text = value.ToString();
+            }
+        }
+        public string ProductsName { get => this.ProductsNameBox.Text; set => this.ProductsNameBox.Text = value; }
+        public int ProductsQuantity {
+            get
+            {
+                if (int.TryParse(ProductsQuantityBox.Text, out int count))
+                {
+                    return count;
+                }
+                return -1;
+            }
+            set
+            {
+                this.ProductsQuantityBox.Text = value.ToString();
+            }
+        }
+        public int ProductsPrice
+        {
+            get
+            {
+                if (int.TryParse(this.ProductsPriceBox.Text, out int price))
+                {
+                    return price;
+                }
+                return -1;
+            }
+            set
+            {
+                this.ProductsPriceBox.Text = value.ToString();
+            }
+
+        }
+
+        public event Action UpdateProduct;
+        public event Action CloseForm;
+
+        public void ShowError(string errorMessage)
+        {
+            this.ErrorLabel.Text = errorMessage;
+        }
+
+
+        public void UpdateForm()
+        {
+        }
+        #endregion
+        #region Methods
+        private void UpdateProductButton_Click(object sender, EventArgs e)
+        {
+            this.UpdateProduct?.Invoke();
+        }
+        #endregion
     }
 }

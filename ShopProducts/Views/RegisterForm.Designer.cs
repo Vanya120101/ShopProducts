@@ -30,13 +30,13 @@ namespace ShopProducts.Views
         private void InitializeComponent()
         {
             this.panel2 = new System.Windows.Forms.Panel();
+            this.RepeatPasswordBox = new System.Windows.Forms.TextBox();
             this.PasswordBox = new System.Windows.Forms.TextBox();
             this.LoginBox = new System.Windows.Forms.TextBox();
-            this.ExitButton = new System.Windows.Forms.Button();
+            this.EnterButton = new System.Windows.Forms.Button();
             this.RegisterButton = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.RepeatPasswordBox = new System.Windows.Forms.TextBox();
             this.ErrorLabel = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -48,13 +48,26 @@ namespace ShopProducts.Views
             this.panel2.Controls.Add(this.RepeatPasswordBox);
             this.panel2.Controls.Add(this.PasswordBox);
             this.panel2.Controls.Add(this.LoginBox);
-            this.panel2.Controls.Add(this.ExitButton);
+            this.panel2.Controls.Add(this.EnterButton);
             this.panel2.Controls.Add(this.RegisterButton);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 100);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(382, 253);
             this.panel2.TabIndex = 3;
+            // 
+            // RepeatPasswordBox
+            // 
+            this.RepeatPasswordBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.RepeatPasswordBox.ForeColor = System.Drawing.Color.Silver;
+            this.RepeatPasswordBox.Location = new System.Drawing.Point(91, 125);
+            this.RepeatPasswordBox.Name = "RepeatPasswordBox";
+            this.RepeatPasswordBox.Size = new System.Drawing.Size(200, 34);
+            this.RepeatPasswordBox.TabIndex = 7;
+            this.RepeatPasswordBox.Tag = "пароль";
+            this.RepeatPasswordBox.Text = "Введите пароль";
+            this.RepeatPasswordBox.Enter += new System.EventHandler(this.PasswordBox_Enter);
+            this.RepeatPasswordBox.Leave += new System.EventHandler(this.PasswordBox_Leave);
             // 
             // PasswordBox
             // 
@@ -82,19 +95,20 @@ namespace ShopProducts.Views
             this.LoginBox.Enter += new System.EventHandler(this.TextBox_EnterLeave);
             this.LoginBox.Leave += new System.EventHandler(this.TextBox_EnterLeave);
             // 
-            // ExitButton
+            // EnterButton
             // 
-            this.ExitButton.AutoSize = true;
-            this.ExitButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ExitButton.FlatAppearance.BorderSize = 0;
-            this.ExitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ExitButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ExitButton.Location = new System.Drawing.Point(91, 212);
-            this.ExitButton.Name = "ExitButton";
-            this.ExitButton.Size = new System.Drawing.Size(200, 41);
-            this.ExitButton.TabIndex = 4;
-            this.ExitButton.Text = "Уже зарегистрирован";
-            this.ExitButton.UseVisualStyleBackColor = true;
+            this.EnterButton.AutoSize = true;
+            this.EnterButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.EnterButton.FlatAppearance.BorderSize = 0;
+            this.EnterButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.EnterButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.EnterButton.Location = new System.Drawing.Point(91, 212);
+            this.EnterButton.Name = "EnterButton";
+            this.EnterButton.Size = new System.Drawing.Size(200, 41);
+            this.EnterButton.TabIndex = 4;
+            this.EnterButton.Text = "Уже зарегистрирован";
+            this.EnterButton.UseVisualStyleBackColor = true;
+            this.EnterButton.Click += new System.EventHandler(this.EnterButton_Click);
             // 
             // RegisterButton
             // 
@@ -133,19 +147,6 @@ namespace ShopProducts.Views
             this.panel1.Size = new System.Drawing.Size(382, 100);
             this.panel1.TabIndex = 2;
             // 
-            // RepeatPasswordBox
-            // 
-            this.RepeatPasswordBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.RepeatPasswordBox.ForeColor = System.Drawing.Color.Silver;
-            this.RepeatPasswordBox.Location = new System.Drawing.Point(91, 125);
-            this.RepeatPasswordBox.Name = "RepeatPasswordBox";
-            this.RepeatPasswordBox.Size = new System.Drawing.Size(200, 34);
-            this.RepeatPasswordBox.TabIndex = 7;
-            this.RepeatPasswordBox.Tag = "пароль";
-            this.RepeatPasswordBox.Text = "Введите пароль";
-            this.RepeatPasswordBox.Enter += new System.EventHandler(this.PasswordBox_Enter);
-            this.RepeatPasswordBox.Leave += new System.EventHandler(this.PasswordBox_Leave);
-            // 
             // ErrorLabel
             // 
             this.ErrorLabel.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -178,7 +179,7 @@ namespace ShopProducts.Views
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TextBox PasswordBox;
         private System.Windows.Forms.TextBox LoginBox;
-        private System.Windows.Forms.Button ExitButton;
+        private System.Windows.Forms.Button EnterButton;
         private System.Windows.Forms.Button RegisterButton;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel1;

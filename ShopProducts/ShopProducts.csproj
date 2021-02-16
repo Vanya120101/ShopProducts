@@ -104,6 +104,7 @@
     <Compile Include="Views\Interfaces\ILoginForm.cs" />
     <Compile Include="Views\Interfaces\IRegisterForm.cs" />
     <Compile Include="Views\Interfaces\ISelectControl.cs" />
+    <Compile Include="Views\Interfaces\IShopProductsMainForm.cs" />
     <Compile Include="Views\Interfaces\IUpdateControl.cs" />
     <Compile Include="Views\RegisterForm.cs">
       <SubType>Form</SubType>

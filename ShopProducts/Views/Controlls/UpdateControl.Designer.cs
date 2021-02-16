@@ -29,40 +29,41 @@ namespace ShopProducts.Views.Controlls
         /// </summary>
         private void InitializeComponent()
         {
-            this.AddProductButton = new System.Windows.Forms.Button();
-            this.NameProductBox = new System.Windows.Forms.TextBox();
+            this.UpdateProductButton = new System.Windows.Forms.Button();
+            this.ProductsNameBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.IdProductBox = new System.Windows.Forms.TextBox();
+            this.ProductsIdBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.PriceProductBox = new System.Windows.Forms.TextBox();
+            this.ProductsPriceBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.ErrorLabel = new System.Windows.Forms.Label();
-            this.QuantityBox = new System.Windows.Forms.TextBox();
+            this.ProductsQuantityBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // AddProductButton
+            // UpdateProductButton
             // 
-            this.AddProductButton.AutoSize = true;
-            this.AddProductButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.AddProductButton.FlatAppearance.BorderSize = 0;
-            this.AddProductButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AddProductButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.AddProductButton.Location = new System.Drawing.Point(30, 180);
-            this.AddProductButton.Name = "AddProductButton";
-            this.AddProductButton.Size = new System.Drawing.Size(133, 41);
-            this.AddProductButton.TabIndex = 21;
-            this.AddProductButton.Text = "Добавить";
-            this.AddProductButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.AddProductButton.UseVisualStyleBackColor = true;
+            this.UpdateProductButton.AutoSize = true;
+            this.UpdateProductButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.UpdateProductButton.FlatAppearance.BorderSize = 0;
+            this.UpdateProductButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.UpdateProductButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.UpdateProductButton.Location = new System.Drawing.Point(30, 180);
+            this.UpdateProductButton.Name = "UpdateProductButton";
+            this.UpdateProductButton.Size = new System.Drawing.Size(133, 41);
+            this.UpdateProductButton.TabIndex = 21;
+            this.UpdateProductButton.Text = "Добавить";
+            this.UpdateProductButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.UpdateProductButton.UseVisualStyleBackColor = true;
+            this.UpdateProductButton.Click += new System.EventHandler(this.UpdateProductButton_Click);
             // 
-            // NameProductBox
+            // ProductsNameBox
             // 
-            this.NameProductBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.NameProductBox.Location = new System.Drawing.Point(180, 60);
-            this.NameProductBox.Name = "NameProductBox";
-            this.NameProductBox.Size = new System.Drawing.Size(100, 34);
-            this.NameProductBox.TabIndex = 20;
+            this.ProductsNameBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ProductsNameBox.Location = new System.Drawing.Point(180, 60);
+            this.ProductsNameBox.Name = "ProductsNameBox";
+            this.ProductsNameBox.Size = new System.Drawing.Size(100, 34);
+            this.ProductsNameBox.TabIndex = 20;
             // 
             // label3
             // 
@@ -75,13 +76,13 @@ namespace ShopProducts.Views.Controlls
             this.label3.Text = "Название";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // IdProductBox
+            // ProductsIdBox
             // 
-            this.IdProductBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.IdProductBox.Location = new System.Drawing.Point(180, 20);
-            this.IdProductBox.Name = "IdProductBox";
-            this.IdProductBox.Size = new System.Drawing.Size(100, 34);
-            this.IdProductBox.TabIndex = 18;
+            this.ProductsIdBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ProductsIdBox.Location = new System.Drawing.Point(180, 20);
+            this.ProductsIdBox.Name = "ProductsIdBox";
+            this.ProductsIdBox.Size = new System.Drawing.Size(100, 34);
+            this.ProductsIdBox.TabIndex = 18;
             // 
             // label1
             // 
@@ -93,13 +94,13 @@ namespace ShopProducts.Views.Controlls
             this.label1.TabIndex = 17;
             this.label1.Text = "ID";
             // 
-            // PriceProductBox
+            // ProductsPriceBox
             // 
-            this.PriceProductBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.PriceProductBox.Location = new System.Drawing.Point(180, 140);
-            this.PriceProductBox.Name = "PriceProductBox";
-            this.PriceProductBox.Size = new System.Drawing.Size(100, 34);
-            this.PriceProductBox.TabIndex = 23;
+            this.ProductsPriceBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ProductsPriceBox.Location = new System.Drawing.Point(180, 140);
+            this.ProductsPriceBox.Name = "ProductsPriceBox";
+            this.ProductsPriceBox.Size = new System.Drawing.Size(100, 34);
+            this.ProductsPriceBox.TabIndex = 23;
             // 
             // label2
             // 
@@ -122,13 +123,13 @@ namespace ShopProducts.Views.Controlls
             this.ErrorLabel.Size = new System.Drawing.Size(0, 29);
             this.ErrorLabel.TabIndex = 26;
             // 
-            // QuantityBox
+            // ProductsQuantityBox
             // 
-            this.QuantityBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.QuantityBox.Location = new System.Drawing.Point(180, 100);
-            this.QuantityBox.Name = "QuantityBox";
-            this.QuantityBox.Size = new System.Drawing.Size(100, 34);
-            this.QuantityBox.TabIndex = 30;
+            this.ProductsQuantityBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ProductsQuantityBox.Location = new System.Drawing.Point(180, 100);
+            this.ProductsQuantityBox.Name = "ProductsQuantityBox";
+            this.ProductsQuantityBox.Size = new System.Drawing.Size(100, 34);
+            this.ProductsQuantityBox.TabIndex = 30;
             // 
             // label4
             // 
@@ -146,15 +147,15 @@ namespace ShopProducts.Views.Controlls
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.Controls.Add(this.QuantityBox);
+            this.Controls.Add(this.ProductsQuantityBox);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.ErrorLabel);
-            this.Controls.Add(this.PriceProductBox);
+            this.Controls.Add(this.ProductsPriceBox);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.AddProductButton);
-            this.Controls.Add(this.NameProductBox);
+            this.Controls.Add(this.UpdateProductButton);
+            this.Controls.Add(this.ProductsNameBox);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.IdProductBox);
+            this.Controls.Add(this.ProductsIdBox);
             this.Controls.Add(this.label1);
             this.Name = "UpdateControl";
             this.Size = new System.Drawing.Size(566, 476);
@@ -165,15 +166,15 @@ namespace ShopProducts.Views.Controlls
 
         #endregion
 
-        private System.Windows.Forms.Button AddProductButton;
-        private System.Windows.Forms.TextBox NameProductBox;
+        private System.Windows.Forms.Button UpdateProductButton;
+        private System.Windows.Forms.TextBox ProductsNameBox;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox IdProductBox;
+        private System.Windows.Forms.TextBox ProductsIdBox;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox PriceProductBox;
+        private System.Windows.Forms.TextBox ProductsPriceBox;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label ErrorLabel;
-        private System.Windows.Forms.TextBox QuantityBox;
+        private System.Windows.Forms.TextBox ProductsQuantityBox;
         private System.Windows.Forms.Label label4;
     }
 }

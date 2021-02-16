@@ -32,9 +32,9 @@ namespace ShopProducts.Views.Controlls
             this.UserProductsTable = new System.Windows.Forms.DataGridView();
             this.ErrorLabel = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.CountProductBox = new System.Windows.Forms.TextBox();
-            this.AddCartProductButton = new System.Windows.Forms.Button();
-            this.NameProductBox = new System.Windows.Forms.TextBox();
+            this.ProductsQuantityBox = new System.Windows.Forms.TextBox();
+            this.AddProductIntoCartButton = new System.Windows.Forms.Button();
+            this.ProductsNameBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.UserProductsTable)).BeginInit();
@@ -73,37 +73,37 @@ namespace ShopProducts.Views.Controlls
             this.label2.TabIndex = 22;
             this.label2.Text = "Количество";
             // 
-            // CountProductBox
+            // ProductsQuantityBox
             // 
-            this.CountProductBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.CountProductBox.Location = new System.Drawing.Point(180, 60);
-            this.CountProductBox.Name = "CountProductBox";
-            this.CountProductBox.Size = new System.Drawing.Size(100, 34);
-            this.CountProductBox.TabIndex = 23;
+            this.ProductsQuantityBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ProductsQuantityBox.Location = new System.Drawing.Point(180, 60);
+            this.ProductsQuantityBox.Name = "ProductsQuantityBox";
+            this.ProductsQuantityBox.Size = new System.Drawing.Size(100, 34);
+            this.ProductsQuantityBox.TabIndex = 23;
             // 
-            // AddCartProductButton
+            // AddProductIntoCartButton
             // 
-            this.AddCartProductButton.AutoSize = true;
-            this.AddCartProductButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.AddCartProductButton.FlatAppearance.BorderSize = 0;
-            this.AddCartProductButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AddCartProductButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.AddCartProductButton.Location = new System.Drawing.Point(30, 110);
-            this.AddCartProductButton.Name = "AddCartProductButton";
-            this.AddCartProductButton.Size = new System.Drawing.Size(252, 41);
-            this.AddCartProductButton.TabIndex = 21;
-            this.AddCartProductButton.Text = "Добавить в корзину";
-            this.AddCartProductButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.AddCartProductButton.UseVisualStyleBackColor = true;
-            this.AddCartProductButton.Click += new System.EventHandler(this.AddCartProductButton_Click);
+            this.AddProductIntoCartButton.AutoSize = true;
+            this.AddProductIntoCartButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.AddProductIntoCartButton.FlatAppearance.BorderSize = 0;
+            this.AddProductIntoCartButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddProductIntoCartButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.AddProductIntoCartButton.Location = new System.Drawing.Point(30, 110);
+            this.AddProductIntoCartButton.Name = "AddProductIntoCartButton";
+            this.AddProductIntoCartButton.Size = new System.Drawing.Size(252, 41);
+            this.AddProductIntoCartButton.TabIndex = 21;
+            this.AddProductIntoCartButton.Text = "Добавить в корзину";
+            this.AddProductIntoCartButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.AddProductIntoCartButton.UseVisualStyleBackColor = true;
+            this.AddProductIntoCartButton.Click += new System.EventHandler(this.AddProductIntoCartButton_Click);
             // 
-            // NameProductBox
+            // ProductsNameBox
             // 
-            this.NameProductBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.NameProductBox.Location = new System.Drawing.Point(180, 20);
-            this.NameProductBox.Name = "NameProductBox";
-            this.NameProductBox.Size = new System.Drawing.Size(100, 34);
-            this.NameProductBox.TabIndex = 18;
+            this.ProductsNameBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ProductsNameBox.Location = new System.Drawing.Point(180, 20);
+            this.ProductsNameBox.Name = "ProductsNameBox";
+            this.ProductsNameBox.Size = new System.Drawing.Size(100, 34);
+            this.ProductsNameBox.TabIndex = 18;
             // 
             // label1
             // 
@@ -119,9 +119,9 @@ namespace ShopProducts.Views.Controlls
             // 
             this.panel1.Controls.Add(this.ErrorLabel);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.NameProductBox);
-            this.panel1.Controls.Add(this.AddCartProductButton);
-            this.panel1.Controls.Add(this.CountProductBox);
+            this.panel1.Controls.Add(this.ProductsNameBox);
+            this.panel1.Controls.Add(this.AddProductIntoCartButton);
+            this.panel1.Controls.Add(this.ProductsQuantityBox);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -149,9 +149,9 @@ namespace ShopProducts.Views.Controlls
         private System.Windows.Forms.DataGridView UserProductsTable;
         private System.Windows.Forms.Label ErrorLabel;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox CountProductBox;
-        private System.Windows.Forms.Button AddCartProductButton;
-        private System.Windows.Forms.TextBox NameProductBox;
+        private System.Windows.Forms.TextBox ProductsQuantityBox;
+        private System.Windows.Forms.Button AddProductIntoCartButton;
+        private System.Windows.Forms.TextBox ProductsNameBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
     }

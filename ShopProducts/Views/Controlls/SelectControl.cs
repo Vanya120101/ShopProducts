@@ -1,4 +1,5 @@
 ﻿using ShopProducts.Models;
+using ShopProducts.Views.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,16 +12,31 @@ using System.Windows.Forms;
 
 namespace ShopProducts.Views.Controlls
 {
-    public partial class SelectControl : UserControl
+    public partial class SelectControl : UserControl, ISelectControl
     {
+        #region Constructs
         public SelectControl()
         {
             InitializeComponent();
+        }
+        #endregion
+        #region ISelectControl
+        public object Products { get => this.ProductsTable.DataSource; set => this.ProductsTable.DataSource = value; }
 
-            this.ProductsTable.DataSource = LoadOperationModel.Users;
+        public event Action CloseForm;
+
+        public void ShowError(string errorMessage)
+        {
         }
 
-        
+        public void UpdateForm()
+        {
+        }
+        #endregion
+
+
+
+
 
     }
 }

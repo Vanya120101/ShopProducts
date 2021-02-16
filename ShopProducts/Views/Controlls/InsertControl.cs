@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ShopProducts.Views.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,11 +11,67 @@ using System.Windows.Forms;
 
 namespace ShopProducts.Views.Controlls
 {
-    public partial class InsertControl : UserControl
+    public partial class InsertControl : UserControl, IInsertControl
     {
+        #region Constructs
         public InsertControl()
         {
             InitializeComponent();
         }
+        #endregion
+
+        #region IInsertControl
+        public string ProductsName { get => this.ProductsNameBox.Text; set => this.ProductsNameBox.Text = value; }
+        public int ProductsQuantity
+        {
+            get
+            {
+                if (int.TryParse(ProductsQuantityBox.Text, out int count))
+                {
+                    return count;
+                }
+                return -1;
+            }
+            set
+            {
+                this.ProductsQuantityBox.Text = value.ToString();
+            }
+        }
+        public int ProductsPrice
+        {
+            get
+            {
+                if (int.TryParse(this.ProductsPriceBox.Text, out int price))
+                {
+                    return price;
+                }
+                return -1;
+            }
+            set
+            {
+                this.ProductsPriceBox.Text = value.ToString();
+            }
+
+        }
+
+        public event Action AddProduct;
+        public event Action CloseForm;
+
+        public void ShowError(string errorMessage)
+        {
+            this.ErrorLabel.Text = errorMessage;
+        }
+
+        public void UpdateForm()
+        {
+        }
+        #endregion
+
+        #region Methods
+        private void AddProductButton_Click(object sender, EventArgs e)
+        {
+            this.AddProduct?.Invoke();
+        }
+        #endregion
     }
 }

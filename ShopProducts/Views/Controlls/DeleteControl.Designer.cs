@@ -30,7 +30,7 @@ namespace ShopProducts.Views.Controlls
         private void InitializeComponent()
         {
             this.DeleteProductButton = new System.Windows.Forms.Button();
-            this.IdProductBox = new System.Windows.Forms.TextBox();
+            this.ProductsIdBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.ErrorLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -49,14 +49,15 @@ namespace ShopProducts.Views.Controlls
             this.DeleteProductButton.Text = "Удалить";
             this.DeleteProductButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.DeleteProductButton.UseVisualStyleBackColor = true;
+            this.DeleteProductButton.Click += new System.EventHandler(this.DeleteProductButton_Click);
             // 
-            // IdProductBox
+            // ProductsIdBox
             // 
-            this.IdProductBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.IdProductBox.Location = new System.Drawing.Point(180, 20);
-            this.IdProductBox.Name = "IdProductBox";
-            this.IdProductBox.Size = new System.Drawing.Size(100, 34);
-            this.IdProductBox.TabIndex = 20;
+            this.ProductsIdBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ProductsIdBox.Location = new System.Drawing.Point(180, 20);
+            this.ProductsIdBox.Name = "ProductsIdBox";
+            this.ProductsIdBox.Size = new System.Drawing.Size(100, 34);
+            this.ProductsIdBox.TabIndex = 20;
             // 
             // label1
             // 
@@ -85,7 +86,7 @@ namespace ShopProducts.Views.Controlls
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.ErrorLabel);
             this.Controls.Add(this.DeleteProductButton);
-            this.Controls.Add(this.IdProductBox);
+            this.Controls.Add(this.ProductsIdBox);
             this.Controls.Add(this.label1);
             this.Name = "DeleteControl";
             this.Size = new System.Drawing.Size(810, 595);
@@ -97,7 +98,7 @@ namespace ShopProducts.Views.Controlls
         #endregion
 
         private System.Windows.Forms.Button DeleteProductButton;
-        private System.Windows.Forms.TextBox IdProductBox;
+        private System.Windows.Forms.TextBox ProductsIdBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label ErrorLabel;
     }

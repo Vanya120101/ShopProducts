@@ -9,6 +9,8 @@ namespace ShopProducts.Views.Interfaces
     interface IBaseForm
     {
         void ShowError(string errorMessage);
-        void Update();
+        void UpdateForm();
+        event Action CloseForm;
+
     }
 }

@@ -10,7 +10,7 @@ namespace ShopProducts.Views.Interfaces
     {
         int ID { get; set; }
 
-        event Action Delete;
+        event Action DeleteProduct;
         void Update();
     }
 }
