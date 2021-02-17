@@ -8,6 +8,9 @@ namespace ShopProducts.Models.Interfaces
 {
     interface IInsertOperationModel
     {
-        void Insert(object data);
+        void InsertUsers(object data);
+        void InsertProducts(object data);
+        void InsertOrders(object data);
+
     }
 }
