@@ -64,14 +64,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\MainController.cs" />
+    <Compile Include="Models\InsertOperationModel.cs" />
     <Compile Include="Models\Interfaces\IInsertOperationModel.cs" />
     <Compile Include="Models\Interfaces\ILoadOperationModel.cs" />
     <Compile Include="Models\Interfaces\IMainModel.cs" />
     <Compile Include="Models\Interfaces\ISelectOperationModel.cs" />
-    <Compile Include="Models\Interfaces\IUpdateOperationModel.cs" />
+    <Compile Include="Models\Interfaces\IModifyOperationModel.cs" />
     <Compile Include="Models\LoadOperationModel.cs" />
     <Compile Include="Models\DataContext.cs" />
-    <Compile Include="Models\UpdateOperationModel.cs" />
+    <Compile Include="Models\ModifyOperationModel.cs" />
     <Compile Include="Views\Controlls\DeleteControl.cs">
       <SubType>UserControl</SubType>
     </Compile>

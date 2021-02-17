@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace ShopProducts.Models.Interfaces
 {
-    interface IUpdateOperationModel
+    interface IModifyOperationModel
     {
-        void Update(object data);
+        void ModifyUsers(object data);
+        void ModifyProducts(object data);
+        void ModifyOrders(object data);
+
     }
 }
