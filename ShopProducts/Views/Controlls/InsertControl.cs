@@ -68,6 +68,10 @@ namespace ShopProducts.Views.Controlls
         #endregion
 
         #region Methods
+        private void CloseButton_Click(object sender, EventArgs e)
+        {
+            this.CloseForm?.Invoke();
+        }
         private void AddProductButton_Click(object sender, EventArgs e)
         {
             this.AddProduct?.Invoke();

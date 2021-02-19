@@ -7,11 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ShopProducts.Models
+namespace ShopProducts.Models.OperationWithDataBase
 {
     class LoadOperationModel : ILoadOperationModel
     {
-        private static DataSet shopDataSet;
+        private static readonly DataSet shopDataSet;
         public  object Users
         {
             get { return shopDataSet.Tables["Users"]; }

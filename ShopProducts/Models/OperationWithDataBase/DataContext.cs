@@ -6,15 +6,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ShopProducts.Models
+namespace ShopProducts.Models.OperationWithDataBase
 {
     static class DataContext
     {
-        private static SqlConnection sqlConnection;
+        private static readonly SqlConnection sqlConnection;
         
         static DataContext()
         {
-            string connectionString = GetConnectionString();
+            string connectionString = ConnectionString;
             sqlConnection = new SqlConnection(connectionString);
         }
 
@@ -27,14 +27,19 @@ namespace ShopProducts.Models
             return path;
         }
 
-        public static string GetConnectionString()
+        public static string ConnectionString
         {
-            SqlConnectionStringBuilder sqlConnectionStringBuilder = new SqlConnectionStringBuilder();
-            sqlConnectionStringBuilder.DataSource = @"(LocalDB)\MSSQLLocalDB";
-            sqlConnectionStringBuilder.AttachDBFilename = GetPath();
-            sqlConnectionStringBuilder.IntegratedSecurity = true;
+            get
+            {
+                SqlConnectionStringBuilder sqlConnectionStringBuilder = new SqlConnectionStringBuilder
+                {
+                    DataSource = @"(LocalDB)\MSSQLLocalDB",
+                    AttachDBFilename = GetPath(),
+                    IntegratedSecurity = true
+                };
 
-            return sqlConnectionStringBuilder.ConnectionString;
+                return sqlConnectionStringBuilder.ConnectionString;
+            }
         }
 
         public async static void OpenConnection()

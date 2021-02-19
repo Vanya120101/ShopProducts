@@ -85,6 +85,11 @@ namespace ShopProducts.Views.Controlls
         {
             this.UpdateProduct?.Invoke();
         }
+        private void CloseButton_Click(object sender, EventArgs e)
+        {
+            CloseForm?.Invoke();
+        }
+    
         #endregion
     }
 }

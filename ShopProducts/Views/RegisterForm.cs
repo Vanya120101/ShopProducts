@@ -42,6 +42,11 @@ namespace ShopProducts.Views
 
 
         #region Methods
+
+        private void CloseButton_Click(object sender, EventArgs e)
+        {
+            this.CloseForm?.Invoke();
+        }
         private void TextBox_EnterLeave(object sender, EventArgs e)
         {
             TextBox textBox = sender as TextBox;

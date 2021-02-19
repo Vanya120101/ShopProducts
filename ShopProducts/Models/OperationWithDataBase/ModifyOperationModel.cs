@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ShopProducts.Models
+namespace ShopProducts.Models.OperationWithDataBase
 {
     class ModifyOperationModel : IModifyOperationModel
     {

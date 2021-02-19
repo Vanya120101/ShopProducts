@@ -57,6 +57,11 @@ namespace ShopProducts.Views.Controlls
             this.DeleteProduct?.Invoke();
         }
 
+        private void CloseButton_Click(object sender, EventArgs e)
+        {
+            this.CloseForm?.Invoke();
+        }
+
         #endregion
 
     }
