@@ -6,13 +6,14 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace ShopProducts.Models.OperationWithDataBase
 {
     class LoadOperationModel : ILoadOperationModel
     {
         private static readonly DataSet shopDataSet = new DataSet("Shop");
-;
+
         public  object Users
         {
             get { return shopDataSet.Tables["Users"]; }
@@ -58,20 +59,39 @@ namespace ShopProducts.Models.OperationWithDataBase
                 true);
 
 
-            DataRelation OrdersProductsRel = new DataRelation("Orders_Products", 
-                ((DataTable)Orders).Columns["ProductId"], 
+            DataRelation ProductsOrdersRel = new DataRelation("Products_Orders", 
                 ((DataTable)Products).Columns["ProductId"], 
+                ((DataTable)Orders).Columns["ProductId"], 
                 true);
 
 
-            DataRelation OrdersUsersRel = new DataRelation("Users_Products", 
-                ((DataTable)Orders).Columns["UserId"], 
+            DataRelation UsersOrdersRel = new DataRelation("Users_Orders", 
                 ((DataTable)Users).Columns["UserId"], 
+                ((DataTable)Orders).Columns["UserId"], 
                 true);
 
-            shopDataSet.Relations.AddRange(new DataRelation[] { UsersProductsRel, OrdersProductsRel, OrdersProductsRel });
+            shopDataSet.Relations.AddRange(new DataRelation[] { UsersProductsRel, ProductsOrdersRel, UsersOrdersRel });
 
 
+        }
+
+        public void Test()
+        {
+            string sum = "";
+
+            foreach (DataRow user in ((DataTable)Users).Rows)
+            {
+                sum += user["FirstName"];
+
+                DataRow[] products = user.GetChildRows("Users_Products");
+
+                foreach (var product in products)
+                {
+                    sum += product["Name"];
+
+                }
+            }
+            MessageBox.Show(sum);
         }
 
 
