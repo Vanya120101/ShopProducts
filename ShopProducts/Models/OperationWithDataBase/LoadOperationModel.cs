@@ -11,7 +11,8 @@ namespace ShopProducts.Models.OperationWithDataBase
 {
     class LoadOperationModel : ILoadOperationModel
     {
-        private static readonly DataSet shopDataSet;
+        private static readonly DataSet shopDataSet = new DataSet("Shop");
+;
         public  object Users
         {
             get { return shopDataSet.Tables["Users"]; }
@@ -24,15 +25,14 @@ namespace ShopProducts.Models.OperationWithDataBase
         {
             get { return shopDataSet.Tables["Orders"]; }
         }
-        static LoadOperationModel()
+        public LoadOperationModel()
         {
-            shopDataSet = new DataSet("Shop");
             LoadData();
-
+            AddRelationsToDataSet();
 
         }
 
-        private  static void LoadData()
+        private  void LoadData()
         {
             string sqlCommandString = "SELECT * FROM Users; SELECT * FROM Products; SELECT * FROM Orders";
             SqlCommand sqlCommand = new SqlCommand(sqlCommandString, DataContext.GetConnection());
@@ -46,6 +46,30 @@ namespace ShopProducts.Models.OperationWithDataBase
 
             //Для асинхронной версии нужен метод для обновления в вью. Не успевает прогрузиться.
             //await Task.Run(() => sqlDataAdapter.Fill(shopDataSet));
+
+
+        }
+
+        private void AddRelationsToDataSet()
+        {
+            DataRelation UsersProductsRel = new DataRelation("Users_Products", 
+                ((DataTable)Users).Columns["UserId"], 
+                ((DataTable)Products).Columns["UserId"],
+                true);
+
+
+            DataRelation OrdersProductsRel = new DataRelation("Orders_Products", 
+                ((DataTable)Orders).Columns["ProductId"], 
+                ((DataTable)Products).Columns["ProductId"], 
+                true);
+
+
+            DataRelation OrdersUsersRel = new DataRelation("Users_Products", 
+                ((DataTable)Orders).Columns["UserId"], 
+                ((DataTable)Users).Columns["UserId"], 
+                true);
+
+            shopDataSet.Relations.AddRange(new DataRelation[] { UsersProductsRel, OrdersProductsRel, OrdersProductsRel });
 
 
         }

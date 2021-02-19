@@ -1,4 +1,5 @@
 ﻿using ShopProducts.Models;
+using ShopProducts.Models.OperationWithDataBase;
 using ShopProducts.Views.Interfaces;
 using System;
 using System.Collections.Generic;
