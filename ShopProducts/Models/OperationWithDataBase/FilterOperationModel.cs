@@ -15,7 +15,7 @@ namespace ShopProducts.Models.OperationWithDataBase
             LoadOperationModel = new LoadOperationModel();
         }
 
-        public object GetUsersOrders(int UserId)
+        private object GetUsersOrders(int UserId)
         {
             DataView usersOrders = new DataView();
             usersOrders.Table = LoadOperationModel.Orders as DataTable;
@@ -24,7 +24,7 @@ namespace ShopProducts.Models.OperationWithDataBase
             return usersOrders;
         }
 
-        public object GetProducts()
+        private object GetProducts()
         {
             DataView products = new DataView();
             products.Table = LoadOperationModel.Products as DataTable;

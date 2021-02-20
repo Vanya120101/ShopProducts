@@ -14,15 +14,15 @@ namespace ShopProducts.Models.OperationWithDataBase
     {
         private static readonly DataSet shopDataSet = new DataSet("Shop");
 
-        public  object Users
+        public  static object Users
         {
             get { return shopDataSet.Tables["Users"]; }
         }
-        public  object Products
+        public static object Products
         {
             get { return shopDataSet.Tables["Products"]; }
         }
-        public  object Orders
+        public static object Orders
         {
             get { return shopDataSet.Tables["Orders"]; }
         }
