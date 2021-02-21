@@ -12,11 +12,18 @@ namespace ShopProducts.Models
 {
     class Users : IUsers
     {
+        private static object UsersTable { get; }
 
+        static Users()
+        {
+            UsersTable = LoadOperationModel.Users;
+        }
         public object GetUsers()
         {
-            return LoadOperationModel.Users;
+            return UsersTable;
         }
+
+
 
 
         public void Update(object data)

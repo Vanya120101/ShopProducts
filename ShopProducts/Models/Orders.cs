@@ -12,9 +12,16 @@ namespace ShopProducts.Models
 {
     class Orders : IOrders
     {
+        private static object OrdersTable { get; }
+
+        static Orders()
+        {
+            OrdersTable = LoadOperationModel.Orders;
+        }
+
         public object GetOrders()
         {
-            return LoadOperationModel.Orders;
+            return OrdersTable;
         }
 
         public void Update(object data)

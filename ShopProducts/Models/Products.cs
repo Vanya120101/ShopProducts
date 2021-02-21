@@ -11,10 +11,15 @@ using System.Threading.Tasks;
 namespace ShopProducts.Models
 {
     class Products : IProducts
-    {
+    {   
+        private static object ProductsTable { get; }
+        static Products()
+        {
+            ProductsTable = LoadOperationModel.Products;
+        }
         public object GetProducts()
         {
-            return LoadOperationModel.Products;
+            return ProductsTable;
         }
 
         public void Update(object data)

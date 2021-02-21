@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace ShopProducts.Models.OperationWithDataBase
 {
-    class LoadOperationModel : ILoadOperationModel
+    static class LoadOperationModel
     {
         private static readonly DataSet shopDataSet = new DataSet("Shop");
 
@@ -18,22 +18,22 @@ namespace ShopProducts.Models.OperationWithDataBase
         {
             get { return shopDataSet.Tables["Users"]; }
         }
-        public static object Products
+        public  static object Products
         {
             get { return shopDataSet.Tables["Products"]; }
         }
-        public static object Orders
+        public  static object Orders
         {
             get { return shopDataSet.Tables["Orders"]; }
         }
-        public LoadOperationModel()
+        static LoadOperationModel()
         {
             LoadData();
             AddRelationsToDataSet();
 
         }
 
-        private  void LoadData()
+        private static void LoadData()
         {
             string sqlCommandString = "SELECT * FROM Users; SELECT * FROM Products; SELECT * FROM Orders";
             SqlCommand sqlCommand = new SqlCommand(sqlCommandString, DataContext.GetConnection());
@@ -51,7 +51,7 @@ namespace ShopProducts.Models.OperationWithDataBase
 
         }
 
-        private void AddRelationsToDataSet()
+        private static void AddRelationsToDataSet()
         {
             DataRelation UsersProductsRel = new DataRelation("Users_Products", 
                 ((DataTable)Users).Columns["UserId"], 
@@ -75,7 +75,7 @@ namespace ShopProducts.Models.OperationWithDataBase
 
         }
 
-        public void Test()
+        public static void Test()
         {
             string sum = "";
 
