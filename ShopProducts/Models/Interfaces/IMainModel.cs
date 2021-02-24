@@ -6,16 +6,7 @@ using System.Threading.Tasks;
 
 namespace ShopProducts.Models.Interfaces
 {
-    interface IMainModel
+    interface IMainModel : IOrders, IProducts, IUsers
     {
-        object Users { get; set; }
-        object Products { get; set; }
-        object Orders { get; set; }
-
-        void Update();
-        void Insert();
-        void Delete();
-        void Select();
-
     }
 }

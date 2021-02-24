@@ -64,6 +64,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\MainController.cs" />
+    <Compile Include="Infrastructure\IAbstractShopFactory.cs" />
+    <Compile Include="Infrastructure\ShopFactory.cs" />
+    <Compile Include="Models\MainModel.cs" />
     <Compile Include="Models\OperationWithDataBase\InformationModel.cs" />
     <Compile Include="Models\Interfaces\IOrders.cs" />
     <Compile Include="Models\Interfaces\IProducts.cs" />

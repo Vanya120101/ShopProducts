@@ -8,5 +8,10 @@ namespace ShopProducts.Controllers
 {
     class MainController
     {
+
+        public MainController()
+        {
+
+        }
     }
 }
