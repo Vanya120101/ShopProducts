@@ -10,5 +10,6 @@ namespace ShopProducts.Models.Interfaces
     {
         object GetOrders();
         void Update(object data);
+        object GetUsersOrders(int UserId)
     }
 }

@@ -12,11 +12,11 @@ namespace ShopProducts.Models
 {
     class Users : IUsers
     {
-        private static object UsersTable { get; }
+        private static DataTable UsersTable { get; }
 
         static Users()
         {
-            UsersTable = LoadOperationModel.Users;
+            UsersTable = LoadOperationModel.Users as DataTable;
         }
         public object GetUsers()
         {
@@ -24,7 +24,33 @@ namespace ShopProducts.Models
         }
 
 
+        public  bool IsLoginExsist(string login)
+        {
+            var query = from user in UsersTable.AsEnumerable()
+                        where user.Field<string>("UsersLogin") == login
+                        select new { };
+            if (query.ToList().Count > 0)
+            {
+                return true;
+            }
+            return false;
+        }
 
+        public bool IsUserExsist(string login, string password)
+        {
+
+            var query = from user in UsersTable.AsEnumerable()
+                        where user.Field<string>("UsersLogin") == login && user.Field<string>("Password") == password
+                        select new
+                        {
+
+                        };
+            if (query.ToList().Count > 0)
+            {
+                return true;
+            }
+            return false;
+        }
 
         public void Update(object data)
         {

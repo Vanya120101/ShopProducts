@@ -10,5 +10,6 @@ namespace ShopProducts.Models.Interfaces
     {
         object GetProducts();
         void Update(object data);
+        object GetProductsFull();
     }
 }

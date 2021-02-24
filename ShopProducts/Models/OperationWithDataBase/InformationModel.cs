@@ -5,9 +5,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ShopProducts.Models
+namespace ShopProducts.Models.OperationWithDataBase
 {
-    class InformationModel
+    /// <summary>
+    /// Класс костыль для объединения двух и более таблиц.
+    /// </summary>
+    static class InformationModel
     {
         static DataTable users;
         static DataTable orders;
@@ -20,43 +23,8 @@ namespace ShopProducts.Models
             products = new Products().GetProducts() as DataTable;
         }
 
-        public object GetUsersOrders(int UserId)
-        {
-            DataView usersOrdersView = new DataView();
-            usersOrdersView.Table = orders as DataTable;
-            usersOrdersView.RowFilter = $"UserId = {UserId}";
-
-            return usersOrdersView;
-        }
-
-        public bool IsLoginExsist(string login)
-        {
-            var query = from user in users.AsEnumerable()
-                        where user.Field<string>("UsersLogin") == login
-                        select new { };
-            if (query.ToList().Count > 0)
-            {
-                return true;
-            }
-            return false;
-        }
-
-        public bool IsUserExsist(string login, string password)
-        {
-            var query = from user in users.AsEnumerable()
-                        where user.Field<string>("UsersLogin") == login && user.Field<string>("Password") == password
-                        select new 
-                        { 
-                        
-                        };
-            if (query.ToList().Count > 0)
-            {
-                return true;
-            }
-            return false;
-        }
-
-        public object GetProductsFull()
+ 
+        public static object GetProductsFull()
         {
 
             var query = from product in products.AsEnumerable()

@@ -10,6 +10,9 @@ namespace ShopProducts.Models.Interfaces
     {
         void Update(object data);
         object GetUsers();
+        bool IsUserExsist(string login, string password);
+        bool IsLoginExsist(string login);
+
 
     }
 }

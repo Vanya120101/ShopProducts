@@ -22,6 +22,10 @@ namespace ShopProducts.Models
             return ProductsTable;
         }
 
+        public object GetProductsFull()
+        {
+            return InformationModel.GetProductsFull();
+        }
         public void Update(object data)
         {
             DataTable products = data as DataTable;

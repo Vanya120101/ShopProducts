@@ -12,16 +12,25 @@ namespace ShopProducts.Models
 {
     class Orders : IOrders
     {
-        private static object OrdersTable { get; }
+        private static DataTable OrdersTable { get; }
 
         static Orders()
         {
-            OrdersTable = LoadOperationModel.Orders;
+            OrdersTable = LoadOperationModel.Orders as DataTable;
         }
 
         public object GetOrders()
         {
             return OrdersTable;
+        }
+
+        public object GetUsersOrders(int UserId)
+        {
+            DataView usersOrdersView = new DataView();
+            usersOrdersView.Table = OrdersTable as DataTable;
+            usersOrdersView.RowFilter = $"UserId = {UserId}";
+
+            return usersOrdersView;
         }
 
         public void Update(object data)
