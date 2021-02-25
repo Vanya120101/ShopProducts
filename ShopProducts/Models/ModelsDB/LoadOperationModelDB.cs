@@ -8,9 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ShopProducts.Models.OperationWithDataBase
+namespace ShopProducts.Models.ModelsDB
 {
-    static class LoadOperationModel
+    static class LoadOperationModelDB
     {
         private static readonly DataSet shopDataSet = new DataSet("Shop");
 
@@ -26,7 +26,7 @@ namespace ShopProducts.Models.OperationWithDataBase
         {
             get { return shopDataSet.Tables["Orders"]; }
         }
-        static LoadOperationModel()
+        static LoadOperationModelDB()
         {
             LoadData();
             AddRelationsToDataSet();

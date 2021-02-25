@@ -8,21 +8,21 @@ using System.Threading.Tasks;
 
 namespace ShopProducts.Infrastructure
 {
-    class ShopFactory : IAbstractShopFactory
+    class ShopDBFactory : IAbstractShopFactory
     {
         public IOrders CreateOrders()
         {
-            return new Orders();
+            return new OrdersDB();
         }
 
         public IProducts CreateProducts()
         {
-            return new Products();
+            return new ProductsDB();
         }
 
         public IUsers CreateUsers()
         {
-            return new Users();
+            return new UsersDB();
         }
     }
 }

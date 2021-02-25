@@ -1,5 +1,5 @@
 ﻿using ShopProducts.Models.Interfaces;
-using ShopProducts.Models.OperationWithDataBase;
+using ShopProducts.Models.ModelsDB;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -10,12 +10,12 @@ using System.Threading.Tasks;
 
 namespace ShopProducts.Models
 {
-    class Products : IProducts
+    class ProductsDB : IProducts
     {   
-        private static object ProductsTable { get; }
-        static Products()
+        private static DataTable ProductsTable { get; }
+        static ProductsDB()
         {
-            ProductsTable = LoadOperationModel.Products;
+            ProductsTable = LoadOperationModelDB.Products as DataTable;
         }
         public object GetProducts()
         {
@@ -24,18 +24,17 @@ namespace ShopProducts.Models
 
         public object GetProductsFull()
         {
-            return InformationModel.GetProductsFull();
+            return InformationModelDB.GetProductsFull();
         }
-        public void Update(object data)
+        public void Update()
         {
-            DataTable products = data as DataTable;
-
+            
             //if (users == null)
             //{
             //    return;
             //}
 
-            foreach (DataRow product in products.Rows)
+            foreach (DataRow product in ProductsTable.Rows)
             {
                 if (product.RowState == DataRowState.Deleted)
                 {
@@ -51,7 +50,7 @@ namespace ShopProducts.Models
                 }
             }
 
-            products.AcceptChanges();
+            ProductsTable.AcceptChanges();
         }
 
 

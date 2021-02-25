@@ -8,7 +8,7 @@ namespace ShopProducts.Models.Interfaces
 {
     interface IUsers
     {
-        void Update(object data);
+        void Update();
         object GetUsers();
         bool IsUserExsist(string login, string password);
         bool IsLoginExsist(string login);

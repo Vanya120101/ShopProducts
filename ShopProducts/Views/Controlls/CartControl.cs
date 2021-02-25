@@ -1,5 +1,5 @@
 ﻿using ShopProducts.Models;
-using ShopProducts.Models.OperationWithDataBase;
+using ShopProducts.Models.ModelsDB;
 using ShopProducts.Views.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -20,7 +20,7 @@ namespace ShopProducts.Views.Controlls
         public CartControl()
         {
             InitializeComponent();
-            this.UserProductsTable.DataSource = new InformationModel().GetProductsFull();
+            this.UserProductsTable.DataSource = new InformationModelDB().GetProductsFull();
         }
         #endregion
 

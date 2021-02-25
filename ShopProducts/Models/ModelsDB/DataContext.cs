@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ShopProducts.Models.OperationWithDataBase
+namespace ShopProducts.Models.ModelsDB
 {
     static class DataContext
     {

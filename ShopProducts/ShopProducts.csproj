@@ -65,19 +65,19 @@
   <ItemGroup>
     <Compile Include="Controllers\MainController.cs" />
     <Compile Include="Infrastructure\IAbstractShopFactory.cs" />
-    <Compile Include="Infrastructure\ShopFactory.cs" />
+    <Compile Include="Infrastructure\ShopDBFactory.cs" />
     <Compile Include="Models\MainModel.cs" />
-    <Compile Include="Models\OperationWithDataBase\InformationModel.cs" />
+    <Compile Include="Models\ModelsDB\InformationModelDB.cs" />
     <Compile Include="Models\Interfaces\IOrders.cs" />
     <Compile Include="Models\Interfaces\IProducts.cs" />
     <Compile Include="Models\Interfaces\IUsers.cs" />
     <Compile Include="Models\Interfaces\ILoadOperationModel.cs" />
     <Compile Include="Models\Interfaces\IMainModel.cs" />
-    <Compile Include="Models\OperationWithDataBase\DataContext.cs" />
-    <Compile Include="Models\OperationWithDataBase\LoadOperationModel.cs" />
-    <Compile Include="Models\Orders.cs" />
-    <Compile Include="Models\Products.cs" />
-    <Compile Include="Models\Users.cs" />
+    <Compile Include="Models\ModelsDB\DataContext.cs" />
+    <Compile Include="Models\ModelsDB\LoadOperationModelDB.cs" />
+    <Compile Include="Models\ModelsDB\OrdersDB.cs" />
+    <Compile Include="Models\ModelsDB\ProductsDB.cs" />
+    <Compile Include="Models\ModelsDB\UsersDB.cs" />
     <Compile Include="Views\Controlls\DeleteControl.cs">
       <SubType>UserControl</SubType>
     </Compile>

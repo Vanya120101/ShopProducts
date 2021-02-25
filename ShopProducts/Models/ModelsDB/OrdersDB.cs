@@ -1,5 +1,5 @@
 ﻿using ShopProducts.Models.Interfaces;
-using ShopProducts.Models.OperationWithDataBase;
+using ShopProducts.Models.ModelsDB;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -10,13 +10,13 @@ using System.Threading.Tasks;
 
 namespace ShopProducts.Models
 {
-    class Orders : IOrders
+    class OrdersDB : IOrders
     {
         private static DataTable OrdersTable { get; }
 
-        static Orders()
+        static OrdersDB()
         {
-            OrdersTable = LoadOperationModel.Orders as DataTable;
+            OrdersTable = LoadOperationModelDB.Orders as DataTable;
         }
 
         public object GetOrders()
@@ -33,16 +33,15 @@ namespace ShopProducts.Models
             return usersOrdersView;
         }
 
-        public void Update(object data)
+        public void Update()
         {
-            DataTable orders = data as DataTable;
 
             //if (users == null)
             //{
             //    return;
             //}
 
-            foreach (DataRow order in orders.Rows)
+            foreach (DataRow order in OrdersTable.Rows)
             {
                 if (order.RowState == DataRowState.Deleted)
                 {
@@ -58,7 +57,7 @@ namespace ShopProducts.Models
                 }
             }
 
-            orders.AcceptChanges();
+            OrdersTable.AcceptChanges();
         }
 
 

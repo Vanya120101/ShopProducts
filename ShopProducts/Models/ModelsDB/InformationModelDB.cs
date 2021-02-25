@@ -5,22 +5,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ShopProducts.Models.OperationWithDataBase
+namespace ShopProducts.Models.ModelsDB
 {
     /// <summary>
     /// Класс костыль для объединения двух и более таблиц.
     /// </summary>
-    static class InformationModel
+    static class InformationModelDB
     {
         static DataTable users;
         static DataTable orders;
         static DataTable products;
        
-        static InformationModel()
+        static InformationModelDB()
         {
-            users = new Users().GetUsers() as DataTable;
-            orders = new Orders().GetOrders() as DataTable;
-            products = new Products().GetProducts() as DataTable;
+            users = new UsersDB().GetUsers() as DataTable;
+            orders = new OrdersDB().GetOrders() as DataTable;
+            products = new ProductsDB().GetProducts() as DataTable;
         }
 
  

@@ -9,7 +9,7 @@ namespace ShopProducts.Models.Interfaces
     interface IProducts
     {
         object GetProducts();
-        void Update(object data);
+        void Update();
         object GetProductsFull();
     }
 }
