@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ShopProducts.Models.Interfaces
 {
-    interface IMainModel : IOrders, IProducts, IUsers
+    interface IShopModel : IOrders, IProducts, IUsers
     {
     }
 }

@@ -12,6 +12,7 @@ namespace ShopProducts.Models.Interfaces
         object GetUsers();
         bool IsUserExsist(string login, string password);
         bool IsLoginExsist(string login);
+        void AddUser(string login, string password);
 
 
     }

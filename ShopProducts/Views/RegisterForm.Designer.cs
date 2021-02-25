@@ -156,7 +156,6 @@ namespace ShopProducts.Views
             this.ErrorLabel.Size = new System.Drawing.Size(382, 50);
             this.ErrorLabel.TabIndex = 1;
             this.ErrorLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.ErrorLabel.Visible = false;
             // 
             // RegisterForm
             // 
@@ -167,6 +166,7 @@ namespace ShopProducts.Views
             this.Controls.Add(this.panel1);
             this.Name = "RegisterForm";
             this.Text = "RegisterForm";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.RegisterForm_FormClosed);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);

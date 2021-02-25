@@ -20,7 +20,6 @@ namespace ShopProducts.Views.Controlls
         public CartControl()
         {
             InitializeComponent();
-            this.UserProductsTable.DataSource = new InformationModelDB().GetProductsFull();
         }
         #endregion
 

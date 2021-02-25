@@ -30,7 +30,7 @@ namespace ShopProducts.Views
         public event Action Register;
         public event Action CloseForm;
 
-        public void ShowError(string errorMessage)
+        public void ShowError(string errorMessage = "")
         {
             this.ErrorLabel.Text = errorMessage;
         }
@@ -43,9 +43,17 @@ namespace ShopProducts.Views
 
         #region Methods
 
-        private void CloseButton_Click(object sender, EventArgs e)
+     
+        private void RegisterButton_Click(object sender, EventArgs e)
         {
-            this.CloseForm?.Invoke();
+            this.ShowError();
+            Register?.Invoke();
+        }
+        private void EnterButton_Click(object sender, EventArgs e)
+        {
+            this.ShowError();
+
+            EnterAccount?.Invoke();
         }
         private void TextBox_EnterLeave(object sender, EventArgs e)
         {
@@ -67,10 +75,6 @@ namespace ShopProducts.Views
         }
 
 
-        private void RegisterButton_Click(object sender, EventArgs e)
-        {
-            Register?.Invoke();
-        }
 
         private void PasswordBox_Leave(object sender, EventArgs e)
         {
@@ -96,14 +100,15 @@ namespace ShopProducts.Views
 
         }
 
-       
-        private void EnterButton_Click(object sender, EventArgs e)
-        {
-            EnterAccount?.Invoke();
-        }
 
-       
+
+
         #endregion
 
+        private void RegisterForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.CloseForm?.Invoke();
+
+        }
     }
 }

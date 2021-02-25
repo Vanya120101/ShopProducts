@@ -52,6 +52,14 @@ namespace ShopProducts.Models
             return false;
         }
 
+        public void AddUser(string login, string password)
+        {
+            DataRow newUser = UsersTable.NewRow();
+            newUser["UsersLogin"] = login;
+            newUser["Password"] = password;
+            UsersTable.Rows.Add(newUser);
+            this.Update();
+        }
         public void Update()
         {
 
@@ -95,7 +103,7 @@ namespace ShopProducts.Models
 
         private void InsertUser(DataRow user)
         {
-            string commandString = @"INSERT Users 
+            string commandString = @"INSERT Users
                                     VALUES (@UsersLogin, @Password, @FirstName, @SecondName, @Age);
                                     SELECT UserId FROM Users WHERE UserId = @@IDENTITY";
 

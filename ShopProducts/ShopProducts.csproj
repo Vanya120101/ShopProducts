@@ -63,16 +63,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\Interfaces\IBaseController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MainController.cs" />
+    <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Infrastructure\IAbstractShopFactory.cs" />
     <Compile Include="Infrastructure\ShopDBFactory.cs" />
-    <Compile Include="Models\MainModel.cs" />
+    <Compile Include="Models\ShopModel.cs" />
     <Compile Include="Models\ModelsDB\InformationModelDB.cs" />
     <Compile Include="Models\Interfaces\IOrders.cs" />
     <Compile Include="Models\Interfaces\IProducts.cs" />
     <Compile Include="Models\Interfaces\IUsers.cs" />
     <Compile Include="Models\Interfaces\ILoadOperationModel.cs" />
-    <Compile Include="Models\Interfaces\IMainModel.cs" />
+    <Compile Include="Models\Interfaces\IShopModel.cs" />
     <Compile Include="Models\ModelsDB\DataContext.cs" />
     <Compile Include="Models\ModelsDB\LoadOperationModelDB.cs" />
     <Compile Include="Models\ModelsDB\OrdersDB.cs" />
@@ -195,8 +198,8 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Models\DatabaseForShopProducts_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>DatabaseForShopProducts.mdf</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <ItemGroup>

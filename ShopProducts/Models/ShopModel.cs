@@ -8,14 +8,14 @@ using System.Threading.Tasks;
 
 namespace ShopProducts.Models
 {
-    class MainModel : IMainModel
+    class ShopModel : IShopModel
     {
 
         IUsers users;
         IProducts products;
         IOrders orders;
 
-        public MainModel(IAbstractShopFactory abstractShopFactory)
+        public ShopModel(IAbstractShopFactory abstractShopFactory)
         {
             users = abstractShopFactory.CreateUsers();
             products = abstractShopFactory.CreateProducts();
@@ -57,13 +57,18 @@ namespace ShopProducts.Models
             return users.IsUserExsist(login, password);
         }
 
-        public void Update(object data)
+        public void Update()
         {
             //Можно организовать логику обновления
 
-            users.Update(data);
-            products.Update(data);
-            orders.Update(data);
+            users.Update();
+            products.Update();
+            orders.Update();
+        }
+
+        public void AddUser(string login, string password)
+        {
+            users.AddUser(login, password);
         }
     }
 }

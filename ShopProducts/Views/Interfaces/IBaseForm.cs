@@ -10,7 +10,9 @@ namespace ShopProducts.Views.Interfaces
     {
         void ShowError(string errorMessage);
         void UpdateForm();
+        void Show();
         event Action CloseForm;
+
 
     }
 }
