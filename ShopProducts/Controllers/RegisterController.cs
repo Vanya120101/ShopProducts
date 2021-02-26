@@ -1,4 +1,5 @@
 ﻿using ShopProducts.Controllers.Interfaces;
+using ShopProducts.Infrastructure;
 using ShopProducts.Models.Interfaces;
 using ShopProducts.Views.Interfaces;
 using System;
@@ -14,33 +15,42 @@ namespace ShopProducts.Controllers
     {
         IRegisterForm registerForm;
         IShopModel shopModel;
-        public RegisterController()
-        {
 
-        }
-        public void SetView(IBaseForm baseForm)
+        public IBaseForm Form
         {
-            registerForm = baseForm as IRegisterForm;
-            Initialize();
+            get
+            {
+                return registerForm;
+            }
         }
-        public void SetModel(IShopModel shopModel)
+        #region Constructs
+        public RegisterController(IShopModel shopModel, IRegisterForm registerForm)
         {
             this.shopModel = shopModel;
+            this.registerForm = registerForm;
+            Initialize();
+
         }
-        private void Initialize()
-        {
-            registerForm.CloseForm += RegisterForm_CloseForm;
-            registerForm.Register += RegisterForm_Register;
-            registerForm.EnterAccount += RegisterForm_EnterAccount;
-        }
+
+        #endregion 
+
+       
+
+       
+
+        #region IRegisterFormHandler
+
 
         private void RegisterForm_EnterAccount()
         {
-            MessageBox.Show("войти в аккаунт");
+            ServiceForms.ShowForm("LoginForm");
+            ServiceForms.CloseForm(registerForm);
+ 
         }
 
         private void RegisterForm_Register()
         {
+            #region Проверка
 
             if (string.IsNullOrEmpty(registerForm.UsersLogin) || registerForm.UsersLogin == "Введите логин")
             {
@@ -64,25 +74,39 @@ namespace ShopProducts.Controllers
             {
                 registerForm.ShowError("Логин занят");
                 return;
-            }
+            } 
+            #endregion
 
             shopModel.AddUser(registerForm.UsersLogin, registerForm.UsersPasswrod);
 
-
-
-
-
+            ServiceForms.ShowForm("LoginForm");
+            ServiceForms.CloseForm(registerForm);
 
         }
 
         private void RegisterForm_CloseForm()
         {
-            Application.Exit();
+            ServiceForms.CloseForm(registerForm);
+  
         }
+        #endregion
 
-        public void ShowForm()
+        #region Methods
+
+        private void Initialize()
         {
-            registerForm.Show();
+            registerForm.CloseForm += RegisterForm_CloseForm;
+            registerForm.Register += RegisterForm_Register;
+            registerForm.EnterAccount += RegisterForm_EnterAccount;
         }
+      
+
+        #endregion
+
+
+
+
+
+
     }
 }

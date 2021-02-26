@@ -15,14 +15,17 @@ namespace ShopProducts.Views
     {
 
         #region Constructors
-        public LoginForm()
+        public LoginForm(string formName)
         {
             InitializeComponent();
+            FormName = formName;
         }
         #endregion
 
 
         #region ILoginForm
+        public string FormName { get; }
+
         public string UsersLogin { get => this.LoginBox.Text; set => this.LoginBox.Text = value; }
         public string UsersPassword { get => this.PasswordBox.Text; set => this.PasswordBox.Text = value; }
 
@@ -89,12 +92,14 @@ namespace ShopProducts.Views
         {
             Register?.Invoke();
         }
+        #endregion
 
         private void CloseButton_Click(object sender, EventArgs e)
         {
-            this.CloseForm?.Invoke();
+            if (CloseForm != null)
+            {
+                this.CloseForm();
+            }
         }
-        #endregion
-
     }
 }

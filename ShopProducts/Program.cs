@@ -1,4 +1,5 @@
 ﻿using ShopProducts.Controllers;
+using ShopProducts.Controllers.Interfaces;
 using ShopProducts.Infrastructure;
 using ShopProducts.Models;
 using ShopProducts.Models.Interfaces;
@@ -34,15 +35,28 @@ namespace ShopProducts
 
             IShopModel shopModel = new ShopModel(new ShopDBFactory());
             MainController mainController = new MainController(shopModel);
-            
-            mainController.SetViewToController("RegisterController", new RegisterController(), new RegisterForm());
-            mainController.SetViewToController("LoginForm", new LoginController(), new LoginForm());
-            mainController.ShowForm("RegisterController");
+
+            IBaseController registerContoller = new RegisterController(shopModel, new RegisterForm("RegisterForm"));
+            IBaseController loginController = new LoginController(shopModel, new LoginForm("LoginForm"));
+
+            mainController.AddControler(registerContoller);
+            mainController.AddControler(loginController);
+
+            mainController.Start(loginController);
+
 
             Application.Run();
-            
 
-         
+
+
+
+
+
+
+
+
+
+
         }
     }
 }

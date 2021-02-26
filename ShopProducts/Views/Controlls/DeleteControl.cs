@@ -14,13 +14,16 @@ namespace ShopProducts.Views.Controlls
     public partial class DeleteControl : UserControl, IDeleteControl
     {
         #region Construcs
-        public DeleteControl()
+        public DeleteControl(string formName)
         {
             InitializeComponent();
+            FormName = formName;
         }
         #endregion
 
         #region IDeleteControl
+        public string FormName { get; }
+
         public int ID
         {
             get
@@ -60,6 +63,11 @@ namespace ShopProducts.Views.Controlls
         private void CloseButton_Click(object sender, EventArgs e)
         {
             this.CloseForm?.Invoke();
+        }
+
+        public void Close()
+        {
+            throw new NotImplementedException();
         }
 
         #endregion

@@ -16,10 +16,7 @@ namespace ShopProducts.Views
         public TestView()
         {
             InitializeComponent();
-            CartControl cartControl = new CartControl();
-            cartControl.Dock = DockStyle.Fill;
             
-            this.Controls.Add(cartControl);
 
            // cartControl.BringToFront();
 

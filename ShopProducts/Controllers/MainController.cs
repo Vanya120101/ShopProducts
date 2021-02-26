@@ -1,4 +1,5 @@
 ﻿using ShopProducts.Controllers.Interfaces;
+using ShopProducts.Infrastructure;
 using ShopProducts.Models.Interfaces;
 using ShopProducts.Views.Interfaces;
 using System;
@@ -13,25 +14,31 @@ namespace ShopProducts.Controllers
     class MainController
     {
         IShopModel ShopModel;
-        Dictionary<string, IBaseController> Controllers;
+        List<IBaseController> controllers;
         public MainController(IShopModel shopModel)
         {
-            Controllers = new Dictionary<string, IBaseController>();
             ShopModel = shopModel;
+            controllers = new List<IBaseController>();
         }
 
-        public void SetViewToController(string controllersName, IBaseController baseController, IBaseForm baseForm)
+        public void AddControler(IBaseController controller)
         {
-            baseController.SetView(baseForm);
-            baseController.SetModel(ShopModel);
-            Controllers.Add(controllersName, baseController);
+            controllers.Add(controller);
+            ServiceForms.AddForm(controller.Form);
         }
 
-
-
-        public void ShowForm(string controllersName)
+        public void Start(IBaseForm form)
         {
-            Controllers[controllersName].ShowForm();
+            ServiceForms.ShowForm(form);
         }
+        public void Start(IBaseController controller)
+        {
+            this.Start(controller.Form);
+        }
+
+
+
+
+
     }
 }

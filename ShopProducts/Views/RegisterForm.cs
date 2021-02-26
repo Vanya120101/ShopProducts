@@ -14,14 +14,16 @@ namespace ShopProducts.Views
     public partial class RegisterForm : Form, IRegisterForm
     {
         #region Constructs
-        public RegisterForm()
+        public RegisterForm(string formName)
         {
             InitializeComponent();
+            FormName = formName;
         }
         #endregion
 
 
         #region IRegisterForm
+        public string FormName { get; }
         public string UsersLogin { get => this.LoginBox.Text; set => this.LoginBox.Text = value; }
         public string UsersPasswrod { get => this.PasswordBox.Text; set => this.PasswordBox.Text = value; }
         public string UsersRepeatedPassword { get => this.RepeatPasswordBox.Text; set => this.RepeatPasswordBox.Text = value; }
@@ -99,16 +101,19 @@ namespace ShopProducts.Views
             }
 
         }
+        private void CloseButton_Click(object sender, EventArgs e)
+        {
+            if (CloseForm != null)
+            {
+                this.CloseForm();
+            }
+        }
+
 
 
 
 
         #endregion
 
-        private void RegisterForm_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            this.CloseForm?.Invoke();
-
-        }
     }
 }

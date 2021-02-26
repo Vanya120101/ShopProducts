@@ -17,13 +17,16 @@ namespace ShopProducts.Views.Controlls
     public partial class CartControl : UserControl, ICartControl
     {
         #region Constructs
-        public CartControl()
+        public CartControl(string formName)
         {
             InitializeComponent();
+            FormName = formName;
         }
         #endregion
 
         #region ICartControl
+        public string FormName { get; }
+
 
         public string ProductsName { get => this.ProductsNameBox.Text; set => this.ProductsNameBox.Text = value; }
         public int ProductsQuintity
@@ -43,10 +46,14 @@ namespace ShopProducts.Views.Controlls
         }
         public object UsersOrders { get => this.UserProductsTable.DataSource; set => this.UserProductsTable.DataSource = value; }
 
+
         public event Action AddIntoCart;
         public event Action CloseForm;
 
-       
+        public void Close()
+        {
+            throw new NotImplementedException();
+        }
 
         public void ShowError(string errorMessage)
         {

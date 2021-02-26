@@ -68,7 +68,9 @@
     <Compile Include="Controllers\MainController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Infrastructure\IAbstractShopFactory.cs" />
+    <Compile Include="Infrastructure\ServiceForms.cs" />
     <Compile Include="Infrastructure\ShopDBFactory.cs" />
+    <Compile Include="Infrastructure\StateWindow.cs" />
     <Compile Include="Models\ShopModel.cs" />
     <Compile Include="Models\ModelsDB\InformationModelDB.cs" />
     <Compile Include="Models\Interfaces\IOrders.cs" />

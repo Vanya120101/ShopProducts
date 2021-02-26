@@ -1,4 +1,5 @@
-﻿using ShopProducts.Models.Interfaces;
+﻿using ShopProducts.Infrastructure;
+using ShopProducts.Models.Interfaces;
 using ShopProducts.Views.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -10,8 +11,6 @@ namespace ShopProducts.Controllers.Interfaces
 {
     interface IBaseController
     {
-        void SetView(IBaseForm baseForm);
-        void SetModel(IShopModel shopModel);
-        void ShowForm();
+         IBaseForm Form {get;}
     }
 }

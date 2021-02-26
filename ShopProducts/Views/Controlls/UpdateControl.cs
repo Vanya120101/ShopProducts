@@ -14,12 +14,15 @@ namespace ShopProducts.Views.Controlls
     public partial class UpdateControl : UserControl, IUpdateControl
     {
         #region Constructs
-        public UpdateControl()
+        public UpdateControl(string formName)
         {
             InitializeComponent();
+            FormName = formName;
         }
         #endregion
         #region IUpdateControl
+        public string FormName { get; }
+
         public int ProductsID
         {
             get
@@ -89,7 +92,12 @@ namespace ShopProducts.Views.Controlls
         {
             CloseForm?.Invoke();
         }
-    
+
+        public void Close()
+        {
+            throw new NotImplementedException();
+        }
+
         #endregion
     }
 }

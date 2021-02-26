@@ -15,20 +15,21 @@ namespace ShopProducts.Views
     public partial class ShopProductsMainForm : Form, IShopProductsMainForm
     {
         #region Constructs
-        public ShopProductsMainForm()
+        public ShopProductsMainForm(string formName)
         {
             InitializeComponent();
-
-            AddMenuItem(new SelectControl(), "Ассортимент");
-            AddMenuItem(new InsertControl(), "Добавить");
-            AddMenuItem(new UpdateControl(), "Обновить");
-            AddMenuItem(new DeleteControl(), "Удалить");
-            AddMenuItem(new CartControl(), "Корзина");
+            FormName = formName;
+            AddMenuItem(new SelectControl("SelectForm"), "Ассортимент");
+            AddMenuItem(new InsertControl("InsertForm"), "Добавить");
+            AddMenuItem(new UpdateControl("UpdateControl"), "Обновить");
+            AddMenuItem(new DeleteControl("DeleteControl"), "Удалить");
+            AddMenuItem(new CartControl("CartControl"), "Корзина");
         }
 
         #endregion
 
         #region IShopProductsMainForm
+        public string FormName { get; }
         public event Action CloseForm;
         public event Action RefreshEverything;
 

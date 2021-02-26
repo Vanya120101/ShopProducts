@@ -14,13 +14,16 @@ namespace ShopProducts.Views.Controlls
     public partial class InsertControl : UserControl, IInsertControl
     {
         #region Constructs
-        public InsertControl()
+        public InsertControl(string formName)
         {
             InitializeComponent();
+            FormName = formName;
         }
         #endregion
 
         #region IInsertControl
+        public string FormName { get; }
+
         public string ProductsName { get => this.ProductsNameBox.Text; set => this.ProductsNameBox.Text = value; }
         public int ProductsQuantity
         {
@@ -75,6 +78,11 @@ namespace ShopProducts.Views.Controlls
         private void AddProductButton_Click(object sender, EventArgs e)
         {
             this.AddProduct?.Invoke();
+        }
+
+        public void Close()
+        {
+            throw new NotImplementedException();
         }
         #endregion
     }

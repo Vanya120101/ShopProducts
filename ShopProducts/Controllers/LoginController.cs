@@ -1,4 +1,5 @@
 ﻿using ShopProducts.Controllers.Interfaces;
+using ShopProducts.Infrastructure;
 using ShopProducts.Models.Interfaces;
 using ShopProducts.Views.Interfaces;
 using System;
@@ -6,32 +7,67 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace ShopProducts.Controllers
 {
     class LoginController : IBaseController
     {
+
+
         ILoginForm loginForm;
         IShopModel shopModel;
-        public LoginController()
-        {
 
+        public IBaseForm Form
+        {
+            get
+            {
+                return loginForm;
+            }
         }
 
-        public void SetModel(IShopModel shopModel)
+        #region Constructs
+        public LoginController(IShopModel shopModel, ILoginForm loginForm)
         {
             this.shopModel = shopModel;
+            this.loginForm = loginForm;
+            Initialize();
+
         }
 
-        public void SetView(IBaseForm baseForm)
+        #endregion 
+     
+
+
+        #region ILoginFormHandler
+        private void LoginForm_Register()
         {
-            loginForm = baseForm as ILoginForm;
+            ServiceForms.ShowForm("RegisterForm");
+            ServiceForms.CloseForm(loginForm);
         }
 
-        public void ShowForm()
+        private void LoginForm_EnterAccount()
         {
-            loginForm.Show();
+            MessageBox.Show("Вход выполнить");
         }
+
+        private void LoginForm_CloseForm()
+        {
+            ServiceForms.CloseForm(loginForm);
+
+        }
+
+        #endregion
+        #region Methods
+
+        private void Initialize()
+        {
+            loginForm.CloseForm += LoginForm_CloseForm;
+            loginForm.EnterAccount += LoginForm_EnterAccount;
+            loginForm.Register += LoginForm_Register;
+        }
+
+        #endregion
     }
 
 }
