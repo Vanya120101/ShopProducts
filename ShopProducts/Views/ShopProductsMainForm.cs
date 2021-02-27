@@ -64,6 +64,14 @@ namespace ShopProducts.Views
         {
             this.RefreshEverything?.Invoke();
         }
+        private void CloseButton_Click(object sender, EventArgs e)
+        {
+            if (CloseForm != null)
+            {
+                this.CloseForm();
+            }
+        }
         #endregion
+
     }
 }

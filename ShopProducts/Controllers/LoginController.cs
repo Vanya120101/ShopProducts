@@ -34,9 +34,14 @@ namespace ShopProducts.Controllers
             Initialize();
 
         }
+        private void Initialize()
+        {
+            loginForm.CloseForm += LoginForm_CloseForm;
+            loginForm.EnterAccount += LoginForm_EnterAccount;
+            loginForm.Register += LoginForm_Register;
+        }
+        #endregion
 
-        #endregion 
-     
 
 
         #region ILoginFormHandler
@@ -48,7 +53,8 @@ namespace ShopProducts.Controllers
 
         private void LoginForm_EnterAccount()
         {
-            MessageBox.Show("Вход выполнить");
+            ServiceForms.ShowForm("ShopProductsForm");
+            ServiceForms.CloseForm(loginForm);
         }
 
         private void LoginForm_CloseForm()
@@ -58,16 +64,9 @@ namespace ShopProducts.Controllers
         }
 
         #endregion
-        #region Methods
 
-        private void Initialize()
-        {
-            loginForm.CloseForm += LoginForm_CloseForm;
-            loginForm.EnterAccount += LoginForm_EnterAccount;
-            loginForm.Register += LoginForm_Register;
-        }
+       
 
-        #endregion
     }
 
 }

@@ -67,6 +67,7 @@
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MainController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
+    <Compile Include="Controllers\ShopProductsController.cs" />
     <Compile Include="Infrastructure\IAbstractShopFactory.cs" />
     <Compile Include="Infrastructure\ServiceForms.cs" />
     <Compile Include="Infrastructure\ShopDBFactory.cs" />

@@ -38,11 +38,14 @@ namespace ShopProducts
 
             IBaseController registerContoller = new RegisterController(shopModel, new RegisterForm("RegisterForm"));
             IBaseController loginController = new LoginController(shopModel, new LoginForm("LoginForm"));
+            IBaseController shopProductsContoller = new ShopProductsController(shopModel, new ShopProductsMainForm("ShopProductsForm"));
 
             mainController.AddControler(registerContoller);
             mainController.AddControler(loginController);
+            mainController.AddControler(shopProductsContoller);
 
             mainController.Start(loginController);
+
 
 
             Application.Run();
