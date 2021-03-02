@@ -12,21 +12,76 @@ namespace ShopProducts.Models
 {
     class UsersDB : IUsers
     {
-        private static DataTable UsersTable { get; }
+
+        private static DataTable usersTable;
+        public object UsersTable
+        {
+            get
+            {
+                return usersTable;
+            }
+        }
+        public int CurrentUserId { get; set; }
 
         static UsersDB()
         {
-            UsersTable = LoadOperationModelDB.Users as DataTable;
-        }
-        public object GetUsers()
-        {
-            return UsersTable;
+            usersTable = LoadOperationModelDB.Users as DataTable;
         }
 
 
-        public  bool IsLoginExsist(string login)
+
+    
+        public bool EnterAccount(string login, string password, out string errorMessage)
         {
-            var query = from user in UsersTable.AsEnumerable()
+            errorMessage = "";
+
+            var query = from user in usersTable.AsEnumerable()
+                        where user.Field<string>("UsersLogin") == login && user.Field<string>("Password") == password
+                        select new
+                        {
+                            Id = (int)user["UserId"]
+                        };
+
+            if (query.ToList().Count == 1)
+            {
+                CurrentUserId = query.ToList()[0].Id;
+                return true;
+            }
+            else if (query.ToList().Count > 1)
+            {
+                errorMessage = "ОШИБКА: Пользователей с таким логином больше одного";
+                return false;
+            }
+            else
+            {
+                errorMessage = "Логин или пароль введены неправильно";
+                return false;
+            }
+        }
+
+        public void AddUser(string login, string password, out string errorMessage)
+        {
+            errorMessage = "";
+            if (LoginExsist(login))
+            {
+                DataRow newUser = usersTable.NewRow();
+                newUser["UsersLogin"] = login;
+                newUser["Password"] = password;
+                usersTable.Rows.Add(newUser);
+                this.Update();
+            }
+            else
+            {
+                errorMessage = "Логин занят";
+            }
+
+
+        }
+
+        #region Methods
+        private bool LoginExsist(string login)
+        {
+            var query = from user in usersTable.AsEnumerable()
                         where user.Field<string>("UsersLogin") == login
                         select new { };
             if (query.ToList().Count > 0)
@@ -35,31 +90,9 @@ namespace ShopProducts.Models
             }
             return false;
         }
+        #endregion
 
-        public bool IsUserExsist(string login, string password)
-        {
-
-            var query = from user in UsersTable.AsEnumerable()
-                        where user.Field<string>("UsersLogin") == login && user.Field<string>("Password") == password
-                        select new
-                        {
-
-                        };
-            if (query.ToList().Count > 0)
-            {
-                return true;
-            }
-            return false;
-        }
-
-        public void AddUser(string login, string password)
-        {
-            DataRow newUser = UsersTable.NewRow();
-            newUser["UsersLogin"] = login;
-            newUser["Password"] = password;
-            UsersTable.Rows.Add(newUser);
-            this.Update();
-        }
+        #region Work with DB
         public void Update()
         {
 
@@ -68,7 +101,7 @@ namespace ShopProducts.Models
             //    return;
             //}
 
-            foreach (DataRow user in UsersTable.Rows)
+            foreach (DataRow user in usersTable.Rows)
             {
                 if (user.RowState == DataRowState.Deleted)
                 {
@@ -84,7 +117,7 @@ namespace ShopProducts.Models
                 }
             }
 
-            UsersTable.AcceptChanges();
+            usersTable.AcceptChanges();
         }
 
 
@@ -140,5 +173,7 @@ namespace ShopProducts.Models
             modifyCommand.ExecuteNonQuery();
             DataContext.CloseConnection();
         }
+
+        #endregion
     }
 }

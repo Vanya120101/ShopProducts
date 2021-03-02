@@ -18,9 +18,9 @@ namespace ShopProducts.Models.ModelsDB
        
         static InformationModelDB()
         {
-            users = new UsersDB().GetUsers() as DataTable;
-            orders = new OrdersDB().GetOrders() as DataTable;
-            products = new ProductsDB().GetProducts() as DataTable;
+            users = new UsersDB().UsersTable as DataTable;
+            orders = new OrdersDB().OrdersTable as DataTable;
+            products = new ProductsDB().ProductsTable as DataTable;
         }
 
  
@@ -30,7 +30,6 @@ namespace ShopProducts.Models.ModelsDB
             var query = from product in products.AsEnumerable()
                         join user in users.AsEnumerable()
                         on product["UserId"] equals user["UserId"]
-                        where product.Field<int>("Quantity") > 0
                         select new
                         {
                             ProductId = product["ProductId"],

@@ -11,30 +11,78 @@ using System.Threading.Tasks;
 namespace ShopProducts.Models
 {
     class ProductsDB : IProducts
-    {   
-        private static DataTable ProductsTable { get; }
+    {
+        private static DataTable productsTable;
+        public object ProductsTable
+        {
+            get { return productsTable; }
+        }
         static ProductsDB()
         {
-            ProductsTable = LoadOperationModelDB.Products as DataTable;
+            productsTable = LoadOperationModelDB.Products as DataTable;
         }
-        public object GetProducts()
+        public void ChangeProduct(string productName, int priceProduct, int quantityProduct)
         {
-            return ProductsTable;
+            foreach (DataRow product in productsTable.Rows)
+            {
+                if ((string)product["Name"] == productName)
+                {
+                    product["Price"] = priceProduct;
+                    product["Quantity"] = quantityProduct;
+                }
+            }
         }
+        
+        public void AddProduct(int userId, string productName, int productQuantity, int price)
+        {
+            DataRow newProduct = productsTable.NewRow();
+            newProduct["Userid"] = userId;
+            newProduct["Name"] = productName;
+            newProduct["Quantity"] = productQuantity;
+            newProduct["Price"] = price;
 
+            productsTable.Rows.Add(newProduct);
+            this.Update();
+        }
+        public void DeleteProudct(int productId)
+        {
+            productsTable.Rows.Find(productId).Delete();
+            this.Update();
+        }
+        public int GetProductId(string productName, out string errorMessage)
+        {
+            errorMessage = "";
+            var query = from product in productsTable.AsEnumerable()
+                        where product.Field<string>("Name") == productName
+                        select new
+                        {
+                            ProductId = (int)product["ProductId"]
+                        };
+
+            if (query.ToList().Count == 1)
+            {
+               return query.ToList()[0].ProductId;
+            }
+            else if (query.ToList().Count > 1)
+            {
+                errorMessage = "ОШИБКА: Продуктов с таким логином больше одного";
+                return -1;
+            }
+            else
+            {
+                errorMessage = "Продуктов с таким именем нет";
+                return -1;
+            }
+        }
         public object GetProductsFull()
         {
             return InformationModelDB.GetProductsFull();
         }
+
+        #region Work with DB
         public void Update()
         {
-            
-            //if (users == null)
-            //{
-            //    return;
-            //}
-
-            foreach (DataRow product in ProductsTable.Rows)
+            foreach (DataRow product in productsTable.Rows)
             {
                 if (product.RowState == DataRowState.Deleted)
                 {
@@ -50,7 +98,7 @@ namespace ShopProducts.Models
                 }
             }
 
-            ProductsTable.AcceptChanges();
+            productsTable.AcceptChanges();
         }
 
 
@@ -99,7 +147,8 @@ namespace ShopProducts.Models
             string commandString = "UPDATE Products " +
                                    "SET Name = @Name," +
                                    "Price = @Price," +
-                                   "Quantity= @Quantity";
+                                   "Quantity= @Quantity" +
+                                   "WHERE ProductId = @ProductId";
 
             SqlCommand modifyCommand = new SqlCommand(commandString, DataContext.GetConnection());
             modifyCommand.Parameters.AddWithValue("Name", product["Name"]);
@@ -110,5 +159,6 @@ namespace ShopProducts.Models
             modifyCommand.ExecuteNonQuery();
             DataContext.CloseConnection();
         }
+        #endregion
     }
 }

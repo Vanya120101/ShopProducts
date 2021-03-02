@@ -8,7 +8,7 @@ namespace ShopProducts.Models.Interfaces
 {
     interface IOrders
     {
-        object GetOrders();
+        object OrdersTable { get; }
         void Update();
         object GetUsersOrders(int UserId);
     }

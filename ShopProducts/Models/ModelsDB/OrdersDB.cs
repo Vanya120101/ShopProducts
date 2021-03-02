@@ -12,18 +12,36 @@ namespace ShopProducts.Models
 {
     class OrdersDB : IOrders
     {
-        private static DataTable OrdersTable { get; }
+        private static DataTable ordersTable;
+        public object OrdersTable
+        {
+            get
+            {
+                return ordersTable;
+            }
+        }
 
         static OrdersDB()
         {
-            OrdersTable = LoadOperationModelDB.Orders as DataTable;
+            ordersTable = LoadOperationModelDB.Orders as DataTable;
         }
-
-        public object GetOrders()
+        
+        public void AddOrder(int userId, int productId, int quantityProduct)
         {
-            return OrdersTable;
-        }
+            DataRow newOrder = ordersTable.NewRow();
+            newOrder["UserId"] = userId;
+            newOrder["ProductId"] = productId;
+            newOrder["QuantityProduct"] = quantityProduct;
 
+            ordersTable.Rows.Add(newOrder);
+            this.Update();
+        }
+  
+        /// <summary>
+        /// Получить заказы пользователя.
+        /// </summary>
+        /// <param name="UserId">Id пользователя</param>
+        /// <returns>Заказы пользователя</returns>
         public object GetUsersOrders(int UserId)
         {
             DataView usersOrdersView = new DataView();
@@ -33,15 +51,16 @@ namespace ShopProducts.Models
             return usersOrdersView;
         }
 
+
+
+
+
+
+
+        #region Work with DB
         public void Update()
         {
-
-            //if (users == null)
-            //{
-            //    return;
-            //}
-
-            foreach (DataRow order in OrdersTable.Rows)
+            foreach (DataRow order in ordersTable.Rows)
             {
                 if (order.RowState == DataRowState.Deleted)
                 {
@@ -57,9 +76,8 @@ namespace ShopProducts.Models
                 }
             }
 
-            OrdersTable.AcceptChanges();
+            ordersTable.AcceptChanges();
         }
-
 
         private void DeleteOrder(DataRow user)
         {
@@ -103,5 +121,6 @@ namespace ShopProducts.Models
         private void ModifyOrder(DataRow order)
         {
         }
+        #endregion
     }
 }

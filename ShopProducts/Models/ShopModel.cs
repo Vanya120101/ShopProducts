@@ -15,6 +15,8 @@ namespace ShopProducts.Models
         IProducts products;
         IOrders orders;
 
+        public object OrdersTable => throw new NotImplementedException();
+
         public ShopModel(IAbstractShopFactory abstractShopFactory)
         {
             users = abstractShopFactory.CreateUsers();
