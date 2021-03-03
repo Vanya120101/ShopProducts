@@ -50,7 +50,7 @@ namespace ShopProducts.Views.Controlls
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.Color.Black;
             this.Controls.Add(this.ProductsTable);
             this.Name = "SelectControl";
             this.Size = new System.Drawing.Size(704, 482);

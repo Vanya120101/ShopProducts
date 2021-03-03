@@ -51,6 +51,11 @@ namespace ShopProducts.Controllers
         }
         #endregion
 
+        public void AddPage(IBaseController controllerOfPage, string nameOfUserControl)
+        {
+            shopProductsForm.AddMenuItem((UserControl)controllerOfPage.Form, nameOfUserControl);
+        }
+
         
     }
 }

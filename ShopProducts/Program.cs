@@ -4,6 +4,7 @@ using ShopProducts.Infrastructure;
 using ShopProducts.Models;
 using ShopProducts.Models.Interfaces;
 using ShopProducts.Views;
+using ShopProducts.Views.Controlls;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -40,9 +41,13 @@ namespace ShopProducts
             IBaseController loginController = new LoginController(shopModel, new LoginForm("LoginForm"));
             IBaseController shopProductsContoller = new ShopProductsController(shopModel, new ShopProductsMainForm("ShopProductsForm"));
 
+            IBaseController selectController = new SelectController(shopModel, new SelectControl("SelectControl"));
+
             mainController.AddControler(registerContoller);
             mainController.AddControler(loginController);
             mainController.AddControler(shopProductsContoller);
+
+            ((ShopProductsController)shopProductsContoller).AddPage(selectController, "Все товары");
 
             mainController.Start(loginController);
 

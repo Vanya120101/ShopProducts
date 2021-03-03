@@ -19,11 +19,7 @@ namespace ShopProducts.Views
         {
             InitializeComponent();
             FormName = formName;
-            AddMenuItem(new SelectControl("SelectForm"), "Ассортимент");
-            AddMenuItem(new InsertControl("InsertForm"), "Добавить");
-            AddMenuItem(new UpdateControl("UpdateControl"), "Обновить");
-            AddMenuItem(new DeleteControl("DeleteControl"), "Удалить");
-            AddMenuItem(new CartControl("CartControl"), "Корзина");
+
         }
 
         #endregion

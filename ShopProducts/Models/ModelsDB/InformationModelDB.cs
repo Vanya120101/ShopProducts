@@ -32,12 +32,12 @@ namespace ShopProducts.Models.ModelsDB
                         on product["UserId"] equals user["UserId"]
                         select new
                         {
-                            ProductId = product["ProductId"],
-                            SellersName = user["FirstName"].ToString() + user["SecondName"].ToString(),
                             ProductsName = product["Name"],
                             ProductsQuantity = product["Quantity"],
-                            ProductsPrice = product["Price"]
+                            ProductsPrice = product["Price"],
+                            SellersName = user["FirstName"].ToString() + user["SecondName"].ToString()
                         };
+
 
 
             return query.ToList();
