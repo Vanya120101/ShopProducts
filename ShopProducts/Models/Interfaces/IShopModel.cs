@@ -15,6 +15,5 @@ namespace ShopProducts.Models.Interfaces
         void AddOrder(string productName, int productQuantity, out string errorMessage);
         void EnterAccount(string login, string password, out string errorMessage);
         void RegisterAccount(string login, string password, out string errorMessage);
-        void AddOrder(string productName, int productQuantity, out string errorMessage);
     }
 }

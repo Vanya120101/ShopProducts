@@ -81,7 +81,12 @@ namespace ShopProducts.Views.Controlls
 
         public void Close()
         {
-            throw new NotImplementedException();
+        }
+
+        public void Clear()
+        {
+
+            this.ShowError("");
         }
 
         #endregion

@@ -42,6 +42,7 @@ namespace ShopProducts.Infrastructure
         public static void CloseForm(IBaseForm form)
         {
             form.Visible = false;
+            form.Clear();
             Exit();
         }
 

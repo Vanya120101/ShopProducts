@@ -44,6 +44,12 @@ namespace ShopProducts.Views.Controlls
         {
             this.CloseForm?.Invoke();
         }
+
+        public void Clear()
+        {
+
+            this.ShowError("");
+        }
         #endregion
 
 

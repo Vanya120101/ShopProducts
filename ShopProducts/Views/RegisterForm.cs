@@ -110,7 +110,18 @@ namespace ShopProducts.Views
         }
 
 
-
+        public void Clear()
+        {
+            this.UsersLogin = "Введите логин";
+            this.UsersPasswrod = "Введите пароль";
+            this.UsersRepeatedPassword = "Введите пароль";
+            this.LoginBox.ForeColor = Color.Silver;
+            this.PasswordBox.ForeColor = Color.Silver;
+            this.PasswordBox.UseSystemPasswordChar = false;
+            this.RepeatPasswordBox.ForeColor = Color.Silver;
+            this.RepeatPasswordBox.UseSystemPasswordChar = false;
+            this.ShowError("");
+        }
 
 
         #endregion

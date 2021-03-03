@@ -63,6 +63,11 @@ namespace ShopProducts.Views.Controlls
         public void UpdateForm()
         {
         }
+
+        public void Clear()
+        {
+            this.ShowError("");
+        }
         #endregion
 
         #region Methods

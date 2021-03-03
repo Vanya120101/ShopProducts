@@ -45,39 +45,21 @@ namespace ShopProducts.Controllers
         {
             ServiceForms.ShowForm("LoginForm");
             ServiceForms.CloseForm(registerForm);
+         
  
         }
 
         private void RegisterForm_Register()
         {
-            #region Проверка
+            shopModel.RegisterAccount(registerForm.UsersLogin, registerForm.UsersPasswrod, out string errorMessage);
 
-            if (string.IsNullOrEmpty(registerForm.UsersLogin) || registerForm.UsersLogin == "Введите логин")
+            if (!string.IsNullOrEmpty(errorMessage))
             {
-                registerForm.ShowError("Логин не может быть пустым");
-                return;
-            }
-            if (string.IsNullOrEmpty(registerForm.UsersPasswrod) || registerForm.UsersPasswrod == "Введите пароль")
-            {
-                registerForm.ShowError("Пароль не может быть пустым");
-                return;
-            }
-            if (registerForm.UsersPasswrod != registerForm.UsersRepeatedPassword)
-            {
-                registerForm.ShowError("Пароли не совпадают");
+                registerForm.ShowError(errorMessage);
                 return;
             }
 
-            bool isLoginExsist = shopModel.IsLoginExsist(registerForm.UsersLogin);
-
-            if (isLoginExsist)
-            {
-                registerForm.ShowError("Логин занят");
-                return;
-            } 
-            #endregion
-
-            shopModel.AddUser(registerForm.UsersLogin, registerForm.UsersPasswrod);
+            MessageBox.Show("Вы успешны зарегестрированы");
 
             ServiceForms.ShowForm("LoginForm");
             ServiceForms.CloseForm(registerForm);

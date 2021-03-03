@@ -49,10 +49,20 @@ namespace ShopProducts.Controllers
         {
             ServiceForms.ShowForm("RegisterForm");
             ServiceForms.CloseForm(loginForm);
+
+            
         }
 
         private void LoginForm_EnterAccount()
         {
+            shopModel.EnterAccount(loginForm.UsersLogin, loginForm.UsersPassword, out string errorMessage);
+
+            if (!string.IsNullOrEmpty(errorMessage))
+            {
+                loginForm.ShowError(errorMessage);
+                return;
+            }
+
             ServiceForms.ShowForm("ShopProductsForm");
             ServiceForms.CloseForm(loginForm);
         }

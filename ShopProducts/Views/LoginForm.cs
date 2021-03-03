@@ -101,5 +101,15 @@ namespace ShopProducts.Views
                 this.CloseForm();
             }
         }
+
+        public void Clear()
+        {
+            this.UsersLogin = "Введите логин";
+            this.UsersPassword = "Введите пароль";
+            this.LoginBox.ForeColor = Color.Silver;
+            this.PasswordBox.ForeColor = Color.Silver;
+            this.PasswordBox.UseSystemPasswordChar = false;
+            this.ShowError("");
+        }
     }
 }

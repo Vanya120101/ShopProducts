@@ -48,6 +48,11 @@ namespace ShopProducts.Views.Controlls
         {
         }
 
+        public void Clear()
+        {
+
+            this.ShowError("");
+        }
         #endregion
 
         #region Methods

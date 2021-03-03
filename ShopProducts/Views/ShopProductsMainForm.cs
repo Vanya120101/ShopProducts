@@ -46,7 +46,6 @@ namespace ShopProducts.Views
 
         public void ShowError(string errorMessage)
         {
-            throw new NotImplementedException();
         }
 
         public void UpdateForm()
@@ -70,6 +69,11 @@ namespace ShopProducts.Views
             {
                 this.CloseForm();
             }
+        }
+
+        public void Clear()
+        {
+
         }
         #endregion
 

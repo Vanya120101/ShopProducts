@@ -12,6 +12,7 @@ namespace ShopProducts.Views.Interfaces
         void UpdateForm();
         void Show();
         void Close();
+        void Clear();
         string FormName { get; }
         bool Visible { get; set; }
         event Action CloseForm;

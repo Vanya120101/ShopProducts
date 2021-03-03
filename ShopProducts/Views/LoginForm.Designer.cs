@@ -32,7 +32,6 @@ namespace ShopProducts.Views
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.ErrorLabel = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.CloseButton = new System.Windows.Forms.Button();
             this.ImageList = new System.Windows.Forms.ImageList(this.components);
@@ -42,6 +41,7 @@ namespace ShopProducts.Views
             this.EnterButton = new System.Windows.Forms.Button();
             this.PasswordBox = new System.Windows.Forms.TextBox();
             this.LoginBox = new System.Windows.Forms.TextBox();
+            this.ErrorLabel = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -57,18 +57,6 @@ namespace ShopProducts.Views
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(382, 100);
             this.panel1.TabIndex = 0;
-            // 
-            // ErrorLabel
-            // 
-            this.ErrorLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ErrorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ErrorLabel.ForeColor = System.Drawing.Color.Red;
-            this.ErrorLabel.Location = new System.Drawing.Point(0, 50);
-            this.ErrorLabel.Name = "ErrorLabel";
-            this.ErrorLabel.Size = new System.Drawing.Size(382, 50);
-            this.ErrorLabel.TabIndex = 1;
-            this.ErrorLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.ErrorLabel.Visible = false;
             // 
             // panel3
             // 
@@ -180,6 +168,17 @@ namespace ShopProducts.Views
             this.LoginBox.Enter += new System.EventHandler(this.LoginBox_Enter);
             this.LoginBox.Leave += new System.EventHandler(this.LoginBox_Leave);
             // 
+            // ErrorLabel
+            // 
+            this.ErrorLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ErrorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ErrorLabel.ForeColor = System.Drawing.Color.Red;
+            this.ErrorLabel.Location = new System.Drawing.Point(0, 50);
+            this.ErrorLabel.Name = "ErrorLabel";
+            this.ErrorLabel.Size = new System.Drawing.Size(382, 50);
+            this.ErrorLabel.TabIndex = 1;
+            this.ErrorLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -206,10 +205,10 @@ namespace ShopProducts.Views
         private System.Windows.Forms.TextBox LoginBox;
         private System.Windows.Forms.Button RegisterButton;
         private System.Windows.Forms.Button EnterButton;
-        private System.Windows.Forms.Label ErrorLabel;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ImageList ImageList;
         private System.Windows.Forms.Button CloseButton;
+        private System.Windows.Forms.Label ErrorLabel;
     }
 }

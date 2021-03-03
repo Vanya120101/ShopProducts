@@ -62,7 +62,7 @@ namespace ShopProducts.Models
         public void AddUser(string login, string password, out string errorMessage)
         {
             errorMessage = "";
-            if (LoginExsist(login))
+            if (!LoginExsist(login))
             {
                 DataRow newUser = usersTable.NewRow();
                 newUser["UsersLogin"] = login;
