@@ -8,7 +8,11 @@ namespace ShopProducts.Models.Interfaces
 {
     interface IProducts
     {
-        object GetProducts();
+        object ProductsTable { get; }
+        void ChangeProduct(string productName, int priceProduct, int quantityProduct, out string errorMessage);
+        void AddProduct(int userId, string productName, int productQuantity, int price, out string errorMessage);
+        void DeleteProudct(string productName, out string errorMessage);
+        int GetProductId(string productName, out string errorMessage);
         void Update();
         object GetProductsFull();
     }

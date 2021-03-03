@@ -10,6 +10,7 @@ namespace ShopProducts.Models.Interfaces
     {
         object OrdersTable { get; }
         void Update();
+        void AddOrder(int userId, int productId, int quantityProduct);
         object GetUsersOrders(int UserId);
     }
 }

@@ -32,8 +32,6 @@ namespace ShopProducts.Views.Controlls
             this.UpdateProductButton = new System.Windows.Forms.Button();
             this.ProductsNameBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.ProductsIdBox = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.ProductsPriceBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.ErrorLabel = new System.Windows.Forms.Label();
@@ -75,24 +73,6 @@ namespace ShopProducts.Views.Controlls
             this.label3.TabIndex = 19;
             this.label3.Text = "Название";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // ProductsIdBox
-            // 
-            this.ProductsIdBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ProductsIdBox.Location = new System.Drawing.Point(180, 20);
-            this.ProductsIdBox.Name = "ProductsIdBox";
-            this.ProductsIdBox.Size = new System.Drawing.Size(100, 34);
-            this.ProductsIdBox.TabIndex = 18;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(30, 20);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(36, 29);
-            this.label1.TabIndex = 17;
-            this.label1.Text = "ID";
             // 
             // ProductsPriceBox
             // 
@@ -155,8 +135,6 @@ namespace ShopProducts.Views.Controlls
             this.Controls.Add(this.UpdateProductButton);
             this.Controls.Add(this.ProductsNameBox);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.ProductsIdBox);
-            this.Controls.Add(this.label1);
             this.Name = "UpdateControl";
             this.Size = new System.Drawing.Size(566, 476);
             this.ResumeLayout(false);
@@ -169,8 +147,6 @@ namespace ShopProducts.Views.Controlls
         private System.Windows.Forms.Button UpdateProductButton;
         private System.Windows.Forms.TextBox ProductsNameBox;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox ProductsIdBox;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox ProductsPriceBox;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label ErrorLabel;

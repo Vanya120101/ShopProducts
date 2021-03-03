@@ -23,21 +23,7 @@ namespace ShopProducts.Views.Controlls
         #region IUpdateControl
         public string FormName { get; }
 
-        public int ProductsID
-        {
-            get
-            {
-                if (int.TryParse(this.ProductsIdBox.Text, out int Id))
-                {
-                    return Id;
-                }
-                return -1;
-            }
-            set
-            {
-                this.ProductsIdBox.Text = value.ToString();
-            }
-        }
+
         public string ProductsName { get => this.ProductsNameBox.Text; set => this.ProductsNameBox.Text = value; }
         public int ProductsQuantity {
             get

@@ -8,11 +8,13 @@ namespace ShopProducts.Models.Interfaces
 {
     interface IUsers
     {
+        object UsersTable { get; }
+        int CurrentUserId { get; set; }
+        bool EnterAccount(string login, string password, out string errorMessage);
+        void AddUser(string login, string password, out string errorMessage);
+
         void Update();
-        object GetUsers();
-        bool IsUserExsist(string login, string password);
-        bool IsLoginExsist(string login);
-        void AddUser(string login, string password);
+
 
 
     }

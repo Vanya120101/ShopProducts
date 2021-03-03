@@ -8,7 +8,7 @@ namespace ShopProducts.Views.Interfaces
 {
     interface IDeleteControl : IBaseForm
     {
-        int ID { get; set; }
+        string ProductName { get; set; }
 
         event Action DeleteProduct;
         void Update();

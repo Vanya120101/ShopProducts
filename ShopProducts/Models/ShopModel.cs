@@ -10,12 +10,11 @@ namespace ShopProducts.Models
 {
     class ShopModel : IShopModel
     {
-
+        #region Construct
         IUsers users;
         IProducts products;
         IOrders orders;
 
-        public object OrdersTable => throw new NotImplementedException();
 
         public ShopModel(IAbstractShopFactory abstractShopFactory)
         {
@@ -24,53 +23,70 @@ namespace ShopProducts.Models
             orders = abstractShopFactory.CreateOrders();
         }
 
-        public object GetOrders()
+        #endregion
+
+        #region User
+        public void EnterAccount(string login, string password, out string errorMessage)
         {
-            return orders.GetOrders();
+            users.EnterAccount(login, password, out string error);
+            errorMessage = error;
+        }
+
+        public void RegisterAccount(string login, string password, out string errorMessage)
+        {
+            users.AddUser(login, password, out string error);
+            errorMessage = error;
+        }
+
+        #endregion
+
+        #region Order
+        public void AddOrder(string productName, int productQuantity, out string errorMessage)
+        {
+            int productId = products.GetProductId(productName, out string error);
+            errorMessage = error;
+
+            if (!string.IsNullOrEmpty(errorMessage))
+            { 
+                return;
+            }
+
+            int userId = users.CurrentUserId;
+
+            orders.AddOrder(productId, userId, productQuantity);
+        }
+        #endregion
+
+        #region Product
+        public void DeleteProduct(string productName, out string errorMessage)
+        {
+            products.DeleteProudct(productName, out string error);
+            errorMessage = error;
+        }
+
+        public void AddProduct(string productName, int productQuantity, int productPrice, out string errorMessage)
+        {
+            int userId = users.CurrentUserId;
+            products.AddProduct(userId, productName, productQuantity, productPrice, out string error);
+            errorMessage = error;
         }
 
         public object GetProducts()
         {
-            return products.GetProducts();
-        }
-        public object GetUsers()
-        {
-            return users.GetUsers();
-        }
-
-        public object GetProductsFull()
-        {
             return products.GetProductsFull();
         }
 
-
-        public object GetUsersOrders(int UserId)
+        public void UpdateProduct(string productName, int productQuantity, int productPrice, out string errorMessage)
         {
-            return orders.GetUsersOrders(UserId);
+            this.products.ChangeProduct(productName, productQuantity, productPrice, out string error);
+            errorMessage = error;
         }
 
-        public bool IsLoginExsist(string login)
-        {
-            return users.IsLoginExsist(login);
-        }
 
-        public bool IsUserExsist(string login, string password)
-        {
-            return users.IsUserExsist(login, password);
-        }
+        #endregion
 
-        public void Update()
-        {
-            //Можно организовать логику обновления
 
-            users.Update();
-            products.Update();
-            orders.Update();
-        }
 
-        public void AddUser(string login, string password)
-        {
-            users.AddUser(login, password);
-        }
+
     }
 }

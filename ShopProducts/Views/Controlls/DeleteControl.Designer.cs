@@ -30,7 +30,7 @@ namespace ShopProducts.Views.Controlls
         private void InitializeComponent()
         {
             this.DeleteProductButton = new System.Windows.Forms.Button();
-            this.ProductsIdBox = new System.Windows.Forms.TextBox();
+            this.ProductsNameBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.ErrorLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -51,13 +51,13 @@ namespace ShopProducts.Views.Controlls
             this.DeleteProductButton.UseVisualStyleBackColor = true;
             this.DeleteProductButton.Click += new System.EventHandler(this.DeleteProductButton_Click);
             // 
-            // ProductsIdBox
+            // ProductsNameBox
             // 
-            this.ProductsIdBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ProductsIdBox.Location = new System.Drawing.Point(180, 20);
-            this.ProductsIdBox.Name = "ProductsIdBox";
-            this.ProductsIdBox.Size = new System.Drawing.Size(100, 34);
-            this.ProductsIdBox.TabIndex = 20;
+            this.ProductsNameBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ProductsNameBox.Location = new System.Drawing.Point(180, 20);
+            this.ProductsNameBox.Name = "ProductsNameBox";
+            this.ProductsNameBox.Size = new System.Drawing.Size(100, 34);
+            this.ProductsNameBox.TabIndex = 20;
             // 
             // label1
             // 
@@ -65,9 +65,9 @@ namespace ShopProducts.Views.Controlls
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label1.Location = new System.Drawing.Point(30, 20);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(36, 29);
+            this.label1.Size = new System.Drawing.Size(126, 29);
             this.label1.TabIndex = 17;
-            this.label1.Text = "ID";
+            this.label1.Text = "Название";
             // 
             // ErrorLabel
             // 
@@ -86,9 +86,9 @@ namespace ShopProducts.Views.Controlls
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.ErrorLabel);
             this.Controls.Add(this.DeleteProductButton);
-            this.Controls.Add(this.ProductsIdBox);
+            this.Controls.Add(this.ProductsNameBox);
             this.Controls.Add(this.label1);
-            this.Name = "DeleteControl";
+            this.ProductName = "DeleteControl";
             this.Size = new System.Drawing.Size(810, 595);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -98,7 +98,7 @@ namespace ShopProducts.Views.Controlls
         #endregion
 
         private System.Windows.Forms.Button DeleteProductButton;
-        private System.Windows.Forms.TextBox ProductsIdBox;
+        private System.Windows.Forms.TextBox ProductsNameBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label ErrorLabel;
     }

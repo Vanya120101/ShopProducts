@@ -21,11 +21,20 @@ namespace ShopProducts.Models
         {
             productsTable = LoadOperationModelDB.Products as DataTable;
         }
-        public void ChangeProduct(string productName, int priceProduct, int quantityProduct)
+        public void ChangeProduct(string productName, int priceProduct, int quantityProduct, out string errorMessage)
         {
+            errorMessage = "";
+
+            int productId = this.GetProductId(productName, out string error);
+            if (!string.IsNullOrEmpty(error))
+            {
+                errorMessage = error;
+                return;
+            }
+            
             foreach (DataRow product in productsTable.Rows)
             {
-                if ((string)product["Name"] == productName)
+                if ((int)product["Id"] == productId)
                 {
                     product["Price"] = priceProduct;
                     product["Quantity"] = quantityProduct;
@@ -33,8 +42,17 @@ namespace ShopProducts.Models
             }
         }
         
-        public void AddProduct(int userId, string productName, int productQuantity, int price)
+        public void AddProduct(int userId, string productName, int productQuantity, int price, out string errorMessage)
         {
+            errorMessage = "";
+            foreach (DataRow product in productsTable.Rows)
+            {
+                if ((string)product["Name"] == productName)
+                {
+                    errorMessage = "Продукт с таким именем уже есть";
+                    return;
+                }
+            }
             DataRow newProduct = productsTable.NewRow();
             newProduct["Userid"] = userId;
             newProduct["Name"] = productName;
@@ -44,8 +62,16 @@ namespace ShopProducts.Models
             productsTable.Rows.Add(newProduct);
             this.Update();
         }
-        public void DeleteProudct(int productId)
+        public void DeleteProudct(string productName, out string errorMessage)
         {
+            errorMessage = "";
+
+            int productId = this.GetProductId(productName, out string error);
+            if (!string.IsNullOrEmpty(error))
+            {
+                errorMessage = error;
+                return;
+            }
             productsTable.Rows.Find(productId).Delete();
             this.Update();
         }

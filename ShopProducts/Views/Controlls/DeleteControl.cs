@@ -24,19 +24,15 @@ namespace ShopProducts.Views.Controlls
         #region IDeleteControl
         public string FormName { get; }
 
-        public int ID
+        public string ProductName
         {
             get
             {
-                if (int.TryParse(this.ProductsIdBox.Text, out int Id))
-                {
-                    return Id;
-                }
-                return -1;
+                return this.ProductsNameBox.Text;
             }
             set
             {
-                this.ProductsIdBox.Text = value.ToString();
+                this.ProductsNameBox.Text = value.ToString();
             }
         }
 
