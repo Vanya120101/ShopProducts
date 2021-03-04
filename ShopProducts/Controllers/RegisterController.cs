@@ -81,8 +81,11 @@ namespace ShopProducts.Controllers
             registerForm.Register += RegisterForm_Register;
             registerForm.EnterAccount += RegisterForm_EnterAccount;
         }
-      
 
+        public void Update()
+        {
+
+        }
         #endregion
 
 

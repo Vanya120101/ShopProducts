@@ -15,7 +15,7 @@ namespace ShopProducts.Controllers
     {
         IShopProductsMainForm shopProductsForm;
         IShopModel shopModel;
-
+        List<IBaseController> controllers;
         public IBaseForm Form
         {
             get
@@ -29,20 +29,24 @@ namespace ShopProducts.Controllers
         {
             this.shopModel = shopModel;
             this.shopProductsForm = shopProductsForm;
+            controllers = new List<IBaseController>();
             Initialize();
 
         }
         private void Initialize()
         {
             this.shopProductsForm.CloseForm += ShopProductsForm_CloseForm;
-            this.shopProductsForm.RefreshEverything += ShopProductsForm_RefreshEverything;
+            this.shopProductsForm.RefreshEverything += Update;
         }
         #endregion
 
         #region IShopProductsMainFormHandler
-        private void ShopProductsForm_RefreshEverything()
+        public void Update()
         {
-            MessageBox.Show("Всё обновлено");
+            foreach (IBaseController controller in controllers)
+            {
+                controller.Update();
+            }
         }
 
         private void ShopProductsForm_CloseForm()
@@ -54,6 +58,7 @@ namespace ShopProducts.Controllers
         public void AddPage(IBaseController controllerOfPage, string nameOfUserControl)
         {
             shopProductsForm.AddMenuItem((UserControl)controllerOfPage.Form, nameOfUserControl);
+            controllers.Add(controllerOfPage);
         }
 
         

@@ -55,7 +55,7 @@ namespace ShopProducts.Views
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(800, 80);
+            this.panel2.Size = new System.Drawing.Size(800, 96);
             this.panel2.TabIndex = 2;
             // 
             // MainMenu
@@ -66,7 +66,7 @@ namespace ShopProducts.Views
             this.FileMainMenu,
             this.ToolsMainMenu,
             this.HelpMainMenu});
-            this.MainMenu.Location = new System.Drawing.Point(0, 50);
+            this.MainMenu.Location = new System.Drawing.Point(0, 66);
             this.MainMenu.Name = "MainMenu";
             this.MainMenu.Size = new System.Drawing.Size(800, 30);
             this.MainMenu.TabIndex = 1;
@@ -77,7 +77,7 @@ namespace ShopProducts.Views
             this.FileMainMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ExitMainMenu});
             this.FileMainMenu.Name = "FileMainMenu";
-            this.FileMainMenu.Size = new System.Drawing.Size(59, 26);
+            this.FileMainMenu.Size = new System.Drawing.Size(59, 24);
             this.FileMainMenu.Text = "Файл";
             // 
             // ExitMainMenu
@@ -92,7 +92,7 @@ namespace ShopProducts.Views
             this.ToolsMainMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.RefreshMainMenu});
             this.ToolsMainMenu.Name = "ToolsMainMenu";
-            this.ToolsMainMenu.Size = new System.Drawing.Size(117, 26);
+            this.ToolsMainMenu.Size = new System.Drawing.Size(117, 24);
             this.ToolsMainMenu.Text = "Инструменты";
             // 
             // RefreshMainMenu
@@ -105,21 +105,21 @@ namespace ShopProducts.Views
             // HelpMainMenu
             // 
             this.HelpMainMenu.Name = "HelpMainMenu";
-            this.HelpMainMenu.Size = new System.Drawing.Size(81, 26);
+            this.HelpMainMenu.Size = new System.Drawing.Size(81, 24);
             this.HelpMainMenu.Text = "Справка";
             // 
             // CloseButton
             // 
             this.CloseButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.CloseButton.AutoSize = true;
             this.CloseButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CloseButton.FlatAppearance.BorderSize = 0;
             this.CloseButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CloseButton.ImageKey = "Close";
             this.CloseButton.ImageList = this.ImageList;
-            this.CloseButton.Location = new System.Drawing.Point(750, 0);
+            this.CloseButton.Location = new System.Drawing.Point(754, 0);
             this.CloseButton.Name = "CloseButton";
-            this.CloseButton.Padding = new System.Windows.Forms.Padding(0, 10, 10, 0);
-            this.CloseButton.Size = new System.Drawing.Size(40, 40);
+            this.CloseButton.Size = new System.Drawing.Size(46, 46);
             this.CloseButton.TabIndex = 2;
             this.CloseButton.UseVisualStyleBackColor = true;
             this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
@@ -134,9 +134,9 @@ namespace ShopProducts.Views
             // 
             this.panel1.Controls.Add(this.TabControl);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 80);
+            this.panel1.Location = new System.Drawing.Point(0, 96);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(800, 370);
+            this.panel1.Size = new System.Drawing.Size(800, 354);
             this.panel1.TabIndex = 3;
             // 
             // TabControl
@@ -148,7 +148,7 @@ namespace ShopProducts.Views
             this.TabControl.Name = "TabControl";
             this.TabControl.Padding = new System.Drawing.Point(10, 10);
             this.TabControl.SelectedIndex = 0;
-            this.TabControl.Size = new System.Drawing.Size(800, 370);
+            this.TabControl.Size = new System.Drawing.Size(800, 354);
             this.TabControl.TabIndex = 2;
             // 
             // ShopProductsMainForm

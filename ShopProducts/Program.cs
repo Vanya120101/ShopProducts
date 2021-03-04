@@ -42,12 +42,16 @@ namespace ShopProducts
             IBaseController shopProductsContoller = new ShopProductsController(shopModel, new ShopProductsMainForm("ShopProductsForm"));
 
             IBaseController selectController = new SelectController(shopModel, new SelectControl("SelectControl"));
+            IBaseController insertController = new InsertController(shopModel, new InsertControl("InsertControl"));
+
 
             mainController.AddControler(registerContoller);
             mainController.AddControler(loginController);
             mainController.AddControler(shopProductsContoller);
 
             ((ShopProductsController)shopProductsContoller).AddPage(selectController, "Все товары");
+            ((ShopProductsController)shopProductsContoller).AddPage(insertController, "Добавление");
+
 
             mainController.Start(loginController);
 

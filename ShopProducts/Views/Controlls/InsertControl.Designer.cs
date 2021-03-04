@@ -107,7 +107,7 @@ namespace ShopProducts.Views.Controlls
             this.ProductsQuantityBox.Location = new System.Drawing.Point(180, 60);
             this.ProductsQuantityBox.Name = "ProductsQuantityBox";
             this.ProductsQuantityBox.Size = new System.Drawing.Size(100, 34);
-            this.ProductsQuantityBox.TabIndex = 28;
+            this.ProductsQuantityBox.TabIndex = 14;
             // 
             // label2
             // 

@@ -85,6 +85,11 @@ namespace ShopProducts.Views.Controlls
         }
         public void Clear()
         {
+            this.ProductsName = null;
+            this.ProductsPrice = 0;
+            this.ProductsPriceBox.Clear();
+            this.ProductsQuantity = 0;
+            this.ProductsQuantityBox.Clear();
 
             this.ShowError("");
         }

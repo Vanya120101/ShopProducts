@@ -6,6 +6,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace ShopProducts.Models
@@ -45,16 +46,39 @@ namespace ShopProducts.Models
         public void AddProduct(int userId, string productName, int productQuantity, int price, out string errorMessage)
         {
             errorMessage = "";
+            RegexOptions options = RegexOptions.None;
+
+            Regex regex = new Regex(@"[ ]{2,}", options);
+            productName = regex.Replace(productName, @" ");
+            productName = productName.TrimStart();
+            productName = productName.TrimEnd();
+
+            if (string.IsNullOrEmpty(productName) || (productQuantity < 0) || (price < 0))
+            {
+                errorMessage = "Поля не заполнены";
+                return;
+            }
+
             foreach (DataRow product in productsTable.Rows)
             {
-                if ((string)product["Name"] == productName)
+                string productNameFromDb = (string)product["Name"];
+
+                productNameFromDb = regex.Replace(productNameFromDb, @" ");
+                productNameFromDb = productNameFromDb.ToLower();
+                productNameFromDb = productNameFromDb.TrimStart();
+                productNameFromDb = productNameFromDb.TrimEnd();
+
+                if (string.Equals(productNameFromDb, productName.ToLower()))
                 {
                     errorMessage = "Продукт с таким именем уже есть";
                     return;
                 }
+             
             }
+
+
             DataRow newProduct = productsTable.NewRow();
-            newProduct["Userid"] = userId;
+            newProduct["UserId"] = userId;
             newProduct["Name"] = productName;
             newProduct["Quantity"] = productQuantity;
             newProduct["Price"] = price;

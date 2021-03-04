@@ -67,6 +67,7 @@ namespace ShopProducts.Models
                 DataRow newUser = usersTable.NewRow();
                 newUser["UsersLogin"] = login;
                 newUser["Password"] = password;
+                newUser["FirstName"] = login;
                 usersTable.Rows.Add(newUser);
                 this.Update();
             }

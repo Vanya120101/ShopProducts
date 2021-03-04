@@ -11,6 +11,7 @@ namespace ShopProducts.Controllers.Interfaces
 {
     interface IBaseController
     {
-         IBaseForm Form {get;}
+        IBaseForm Form { get; }
+        void Update();
     }
 }

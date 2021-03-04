@@ -73,9 +73,14 @@ namespace ShopProducts.Controllers
 
         }
 
+        public void Update()
+        {
+
+        }
+
         #endregion
 
-       
+
 
     }
 

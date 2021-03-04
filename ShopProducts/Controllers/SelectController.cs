@@ -37,6 +37,12 @@ namespace ShopProducts.Controllers
             this.selectControl.Products = shopModel.GetProducts();
             selectControl.UpdateForm();
         }
+
+        public void Update()
+        {
+            this.selectControl.Products = shopModel.GetProducts();
+
+        }
         #endregion
     }
 }
