@@ -70,6 +70,7 @@
     <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Controllers\SelectController.cs" />
     <Compile Include="Controllers\ShopProductsController.cs" />
+    <Compile Include="Controllers\UpdateController.cs" />
     <Compile Include="Infrastructure\IAbstractShopFactory.cs" />
     <Compile Include="Infrastructure\ServiceForms.cs" />
     <Compile Include="Infrastructure\ShopDBFactory.cs" />

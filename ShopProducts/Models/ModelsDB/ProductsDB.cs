@@ -26,23 +26,30 @@ namespace ShopProducts.Models
         {
             errorMessage = "";
 
+
+            if (string.IsNullOrEmpty(productName) || (quantityProduct < 0) || (priceProduct < 0))
+            {
+                errorMessage = "Поля не заполнены";
+                return;
+            }
+
             int productId = this.GetProductId(productName, out string error);
             if (!string.IsNullOrEmpty(error))
             {
                 errorMessage = error;
                 return;
             }
-            
+
             foreach (DataRow product in productsTable.Rows)
             {
-                if ((int)product["Id"] == productId)
+                if ((int)product["ProductId"] == productId)
                 {
                     product["Price"] = priceProduct;
                     product["Quantity"] = quantityProduct;
                 }
             }
         }
-        
+
         public void AddProduct(int userId, string productName, int productQuantity, int price, out string errorMessage)
         {
             errorMessage = "";
@@ -73,7 +80,7 @@ namespace ShopProducts.Models
                     errorMessage = "Продукт с таким именем уже есть";
                     return;
                 }
-             
+
             }
 
 
@@ -102,27 +109,31 @@ namespace ShopProducts.Models
         public int GetProductId(string productName, out string errorMessage)
         {
             errorMessage = "";
-            var query = from product in productsTable.AsEnumerable()
-                        where product.Field<string>("Name") == productName
-                        select new
-                        {
-                            ProductId = (int)product["ProductId"]
-                        };
 
-            if (query.ToList().Count == 1)
+            RegexOptions options = RegexOptions.None;
+            Regex regex = new Regex(@"[ ]{2,}", options);
+            productName = regex.Replace(productName, @" ");
+            productName = productName.TrimStart();
+            productName = productName.TrimEnd();
+
+            foreach (DataRow product in productsTable.Rows)
             {
-               return query.ToList()[0].ProductId;
+                string productNameFromDb = (string)product["Name"];
+
+                productNameFromDb = regex.Replace(productNameFromDb, @" ");
+                productNameFromDb = productNameFromDb.ToLower();
+                productNameFromDb = productNameFromDb.TrimStart();
+                productNameFromDb = productNameFromDb.TrimEnd();
+
+                if (string.Equals(productNameFromDb, productName.ToLower()))
+                {
+                    return (int)product["ProductId"];
+                }
             }
-            else if (query.ToList().Count > 1)
-            {
-                errorMessage = "ОШИБКА: Продуктов с таким логином больше одного";
-                return -1;
-            }
-            else
-            {
-                errorMessage = "Продуктов с таким именем нет";
-                return -1;
-            }
+
+            errorMessage = "Продуктов с таким именем нет";
+            return -1;
+
         }
         public object GetProductsFull()
         {

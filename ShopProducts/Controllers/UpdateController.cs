@@ -9,45 +9,48 @@ using System.Threading.Tasks;
 
 namespace ShopProducts.Controllers
 {
-    class InsertController : IBaseController
+    class UpdateController : IBaseController
     {
-        IInsertControl insertControl;
+
+        IUpdateControl updateControl;
         IShopModel shopModel;
 
         public IBaseForm Form
         {
             get
             {
-                return insertControl;
+                return updateControl;
             }
         }
 
         #region Constructs
-        public InsertController(IShopModel shopModel, IInsertControl insertControl)
+        public UpdateController(IShopModel shopModel, IUpdateControl updateControl)
         {
             this.shopModel = shopModel;
-            this.insertControl = insertControl;
+            this.updateControl = updateControl;
             Initialize();
 
         }
         private void Initialize()
         {
-            this.insertControl.AddProduct += InsertControl_AddProduct;
+            updateControl.UpdateProduct += UpdateControl_UpdateProduct;
         }
+
         #endregion
-        private void InsertControl_AddProduct()
+        private void UpdateControl_UpdateProduct()
         {
-            this.shopModel.AddProduct(insertControl.ProductsName, insertControl.ProductsQuantity, insertControl.ProductsPrice, out string errorMessage);
+            shopModel.UpdateProduct(updateControl.ProductsName, updateControl.ProductsPrice, updateControl.ProductsQuantity, out string errorMessage);
             if (!string.IsNullOrEmpty(errorMessage))
             {
-                insertControl.ShowError(errorMessage);
+                updateControl.ShowError(errorMessage);
             }
             else
             {
-                this.insertControl.Clear();
-
+                updateControl.Clear();
             }
+
         }
+
         public void Update()
         {
 

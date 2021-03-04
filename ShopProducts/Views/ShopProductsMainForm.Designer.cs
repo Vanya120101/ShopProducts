@@ -61,14 +61,15 @@ namespace ShopProducts.Views
             // MainMenu
             // 
             this.MainMenu.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.MainMenu.Font = new System.Drawing.Font("Segoe UI", 14F);
             this.MainMenu.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.MainMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.FileMainMenu,
             this.ToolsMainMenu,
             this.HelpMainMenu});
-            this.MainMenu.Location = new System.Drawing.Point(0, 66);
+            this.MainMenu.Location = new System.Drawing.Point(0, 56);
             this.MainMenu.Name = "MainMenu";
-            this.MainMenu.Size = new System.Drawing.Size(800, 30);
+            this.MainMenu.Size = new System.Drawing.Size(800, 40);
             this.MainMenu.TabIndex = 1;
             this.MainMenu.Text = "menuStrip2";
             // 
@@ -77,13 +78,13 @@ namespace ShopProducts.Views
             this.FileMainMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ExitMainMenu});
             this.FileMainMenu.Name = "FileMainMenu";
-            this.FileMainMenu.Size = new System.Drawing.Size(59, 24);
+            this.FileMainMenu.Size = new System.Drawing.Size(85, 36);
             this.FileMainMenu.Text = "Файл";
             // 
             // ExitMainMenu
             // 
             this.ExitMainMenu.Name = "ExitMainMenu";
-            this.ExitMainMenu.Size = new System.Drawing.Size(136, 26);
+            this.ExitMainMenu.Size = new System.Drawing.Size(173, 36);
             this.ExitMainMenu.Text = "Выход";
             this.ExitMainMenu.Click += new System.EventHandler(this.ExitMainMenu_Click);
             // 
@@ -92,20 +93,20 @@ namespace ShopProducts.Views
             this.ToolsMainMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.RefreshMainMenu});
             this.ToolsMainMenu.Name = "ToolsMainMenu";
-            this.ToolsMainMenu.Size = new System.Drawing.Size(117, 24);
+            this.ToolsMainMenu.Size = new System.Drawing.Size(179, 36);
             this.ToolsMainMenu.Text = "Инструменты";
             // 
             // RefreshMainMenu
             // 
             this.RefreshMainMenu.Name = "RefreshMainMenu";
-            this.RefreshMainMenu.Size = new System.Drawing.Size(161, 26);
+            this.RefreshMainMenu.Size = new System.Drawing.Size(213, 36);
             this.RefreshMainMenu.Text = "Обновить";
             this.RefreshMainMenu.Click += new System.EventHandler(this.RefreshMainMenu_Click);
             // 
             // HelpMainMenu
             // 
             this.HelpMainMenu.Name = "HelpMainMenu";
-            this.HelpMainMenu.Size = new System.Drawing.Size(81, 24);
+            this.HelpMainMenu.Size = new System.Drawing.Size(121, 36);
             this.HelpMainMenu.Text = "Справка";
             // 
             // CloseButton

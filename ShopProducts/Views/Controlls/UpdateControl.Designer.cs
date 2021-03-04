@@ -46,7 +46,7 @@ namespace ShopProducts.Views.Controlls
             this.UpdateProductButton.FlatAppearance.BorderSize = 0;
             this.UpdateProductButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.UpdateProductButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.UpdateProductButton.Location = new System.Drawing.Point(30, 180);
+            this.UpdateProductButton.Location = new System.Drawing.Point(30, 140);
             this.UpdateProductButton.Name = "UpdateProductButton";
             this.UpdateProductButton.Size = new System.Drawing.Size(133, 41);
             this.UpdateProductButton.TabIndex = 21;
@@ -58,7 +58,7 @@ namespace ShopProducts.Views.Controlls
             // ProductsNameBox
             // 
             this.ProductsNameBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ProductsNameBox.Location = new System.Drawing.Point(180, 60);
+            this.ProductsNameBox.Location = new System.Drawing.Point(180, 20);
             this.ProductsNameBox.Name = "ProductsNameBox";
             this.ProductsNameBox.Size = new System.Drawing.Size(100, 34);
             this.ProductsNameBox.TabIndex = 20;
@@ -67,7 +67,7 @@ namespace ShopProducts.Views.Controlls
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(30, 60);
+            this.label3.Location = new System.Drawing.Point(30, 20);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(126, 29);
             this.label3.TabIndex = 19;
@@ -77,7 +77,7 @@ namespace ShopProducts.Views.Controlls
             // ProductsPriceBox
             // 
             this.ProductsPriceBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ProductsPriceBox.Location = new System.Drawing.Point(180, 140);
+            this.ProductsPriceBox.Location = new System.Drawing.Point(180, 100);
             this.ProductsPriceBox.Name = "ProductsPriceBox";
             this.ProductsPriceBox.Size = new System.Drawing.Size(100, 34);
             this.ProductsPriceBox.TabIndex = 23;
@@ -86,7 +86,7 @@ namespace ShopProducts.Views.Controlls
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(30, 140);
+            this.label2.Location = new System.Drawing.Point(30, 100);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(72, 29);
             this.label2.TabIndex = 22;
@@ -106,7 +106,7 @@ namespace ShopProducts.Views.Controlls
             // ProductsQuantityBox
             // 
             this.ProductsQuantityBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ProductsQuantityBox.Location = new System.Drawing.Point(180, 100);
+            this.ProductsQuantityBox.Location = new System.Drawing.Point(180, 60);
             this.ProductsQuantityBox.Name = "ProductsQuantityBox";
             this.ProductsQuantityBox.Size = new System.Drawing.Size(100, 34);
             this.ProductsQuantityBox.TabIndex = 30;
@@ -115,7 +115,7 @@ namespace ShopProducts.Views.Controlls
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.Location = new System.Drawing.Point(30, 100);
+            this.label4.Location = new System.Drawing.Point(30, 60);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(152, 29);
             this.label4.TabIndex = 29;
