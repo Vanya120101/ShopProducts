@@ -18,6 +18,8 @@ namespace ShopProducts.Views.Controlls
         {
             InitializeComponent();
             FormName = formName;
+            this.ProductsNameBox.Clear();
+
         }
         #endregion
 
@@ -32,7 +34,7 @@ namespace ShopProducts.Views.Controlls
             }
             set
             {
-                this.ProductsNameBox.Text = value.ToString();
+                this.ProductsNameBox.Text = value;
             }
         }
 
@@ -50,6 +52,8 @@ namespace ShopProducts.Views.Controlls
 
         public void Clear()
         {
+            this.ProductName = null;
+            this.ProductsNameBox.Clear();
 
             this.ShowError("");
         }

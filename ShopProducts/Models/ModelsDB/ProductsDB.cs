@@ -103,7 +103,13 @@ namespace ShopProducts.Models
                 errorMessage = error;
                 return;
             }
-            productsTable.Rows.Find(productId).Delete();
+            foreach (DataRow product in productsTable.Rows)
+            {
+                if ((int)product["ProductId"]==productId)
+                {
+                    product.Delete();
+                }
+            }
             this.Update();
         }
         public int GetProductId(string productName, out string errorMessage)
@@ -171,7 +177,7 @@ namespace ShopProducts.Models
                                     WHERE ProductId = @ProductId";
 
             SqlCommand deleteCommand = new SqlCommand(commandString, DataContext.GetConnection());
-            deleteCommand.Parameters.AddWithValue("ProductId", product["ProductId"]);
+            deleteCommand.Parameters.AddWithValue("ProductId", product["ProductId", DataRowVersion.Original]);
 
 
             DataContext.OpenConnection();
