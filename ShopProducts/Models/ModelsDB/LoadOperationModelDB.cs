@@ -53,36 +53,36 @@ namespace ShopProducts.Models.ModelsDB
 
         private static void AddRelationsToDataSet()
         {
-            DataRelation UsersProductsRel = new DataRelation("Users_Products",
-                ((DataTable)Users).Columns["UserId"],
-                ((DataTable)Products).Columns["UserId"],
-                true);
+            //DataRelation UsersProductsRel = new DataRelation("Users_Products",
+            //    ((DataTable)Users).Columns["UserId"],
+            //    ((DataTable)Products).Columns["UserId"],
+            //    true);
 
 
-            DataRelation ProductsOrdersRel = new DataRelation("Products_Orders",
-                ((DataTable)Products).Columns["ProductId"],
-                ((DataTable)Orders).Columns["ProductId"],
-                true);
+            //DataRelation ProductsOrdersRel = new DataRelation("Products_Orders",
+            //    ((DataTable)Products).Columns["ProductId"],
+            //    ((DataTable)Orders).Columns["ProductId"],
+            //    true);
 
 
-            DataRelation UsersOrdersRel = new DataRelation("Users_Orders",
-                ((DataTable)Users).Columns["UserId"],
-                ((DataTable)Orders).Columns["UserId"],
-                true);
+            //DataRelation UsersOrdersRel = new DataRelation("Users_Orders",
+            //    ((DataTable)Users).Columns["UserId"],
+            //    ((DataTable)Orders).Columns["UserId"],
+            //    true);
 
-            shopDataSet.Relations.AddRange(new DataRelation[] { UsersProductsRel, ProductsOrdersRel, UsersOrdersRel });
+            //shopDataSet.Relations.AddRange(new DataRelation[] { UsersProductsRel, ProductsOrdersRel, UsersOrdersRel });
 
             //ForeignKeyConstraint FK_Users_Products = ((DataTable)Users).Constraints["Users_Products"] as ForeignKeyConstraint;
-            ForeignKeyConstraint FK_Products_Orders = ((DataTable)Orders).Constraints["Products_Orders"] as ForeignKeyConstraint;
+            //ForeignKeyConstraint FK_Products_Orders = ((DataTable)Orders).Constraints["Products_Orders"] as ForeignKeyConstraint;
 
 
-            FK_Products_Orders.DeleteRule = Rule.Cascade;
-            FK_Products_Orders.UpdateRule = Rule.Cascade;
+            //FK_Products_Orders.DeleteRule = Rule.Cascade;
+            //FK_Products_Orders.UpdateRule = Rule.Cascade;
 
-            foreach (Constraint con in ((DataTable)Orders).Constraints)
-            {
-                MessageBox.Show(con.ToString());
-            }
+            //foreach (Constraint con in ((DataTable)Orders).Constraints)
+            //{
+            //    MessageBox.Show(con.ToString());
+            //}
 
 
 

@@ -63,6 +63,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\DeleteController.cs" />
     <Compile Include="Controllers\InsertController.cs" />
     <Compile Include="Controllers\Interfaces\IBaseController.cs" />

@@ -53,7 +53,12 @@ namespace ShopProducts.Models
 
             int userId = users.CurrentUserId;
 
-            orders.AddOrder(productId, userId, productQuantity);
+            orders.AddOrder(userId, productId, productQuantity);
+        }
+
+        public object GetUsersOrders()
+        {
+            return this.orders.GetUsersOrders(users.CurrentUserId);
         }
         #endregion
 

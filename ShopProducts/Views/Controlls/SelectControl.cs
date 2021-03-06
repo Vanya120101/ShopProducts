@@ -65,6 +65,9 @@ namespace ShopProducts.Views.Controlls
             this.ProductsTable.Columns[2].Width = 200;
             this.ProductsTable.Columns[3].Width = 200;
 
+            this.ProductsTable.AllowUserToResizeRows = false;
+
+
         }
         private void CloseButton_Click(object sender, EventArgs e)
         {

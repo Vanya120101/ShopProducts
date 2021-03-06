@@ -31,7 +31,7 @@ namespace ShopProducts.Models
             DataRow newOrder = ordersTable.NewRow();
             newOrder["UserId"] = userId;
             newOrder["ProductId"] = productId;
-            newOrder["QuantityProduct"] = quantityProduct;
+            newOrder["Quantity"] = quantityProduct;
 
             ordersTable.Rows.Add(newOrder);
             this.Update();
@@ -42,13 +42,11 @@ namespace ShopProducts.Models
         /// </summary>
         /// <param name="UserId">Id пользователя</param>
         /// <returns>Заказы пользователя</returns>
+       
+
         public object GetUsersOrders(int UserId)
         {
-            DataView usersOrdersView = new DataView();
-            usersOrdersView.Table = OrdersTable as DataTable;
-            usersOrdersView.RowFilter = $"UserId = {UserId}";
-
-            return usersOrdersView;
+            return InformationModelDB.GetUsersOrders(UserId);
         }
 
 
@@ -102,10 +100,8 @@ namespace ShopProducts.Models
 
             SqlCommand insertCommand = new SqlCommand(commandString, DataContext.GetConnection());
             insertCommand.Parameters.AddWithValue("UserId", order["UserId"]);
-            insertCommand.Parameters.AddWithValue("Name", order["Name"]);
+            insertCommand.Parameters.AddWithValue("@ProductId", order["ProductId"]);
             insertCommand.Parameters.AddWithValue("@Quantity", order["Quantity"]);
-            insertCommand.Parameters.AddWithValue("@Price", order["Price"]);
-
 
 
 

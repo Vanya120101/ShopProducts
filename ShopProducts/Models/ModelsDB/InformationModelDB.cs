@@ -43,6 +43,21 @@ namespace ShopProducts.Models.ModelsDB
             return query.ToList();
         }
 
+        public static object GetUsersOrders(int userId)
+        {
+            var query = from order in orders.AsEnumerable()
+                        join product in products.AsEnumerable()
+                        on order["ProductId"] equals product["ProductId"]
+                        where (int)order["UserId"] == userId
+                        select new
+                        {
+                            ProductName = product["Name"],
+                            OrderQuantity = order["Quantity"],
+                            Price = product["Price"]
+                        };
+
+            return query.ToList();
+        }
 
 
 

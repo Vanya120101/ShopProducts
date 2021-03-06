@@ -62,10 +62,27 @@ namespace ShopProducts.Views.Controlls
 
         public void UpdateForm()
         {
+
+            this.UserProductsTable.Columns[0].HeaderCell.Value = "Продукт";
+            this.UserProductsTable.Columns[1].HeaderCell.Value = "Количество";
+            this.UserProductsTable.Columns[2].HeaderCell.Value = "Цена";
+
+
+            this.UserProductsTable.Columns[0].Width = 200;
+            this.UserProductsTable.Columns[1].Width = 200;
+            this.UserProductsTable.Columns[2].Width = 200;
+
+            this.UserProductsTable.AllowUserToResizeRows = false;
+
         }
 
         public void Clear()
         {
+            this.ProductsName = null;
+            this.ProductsNameBox.Clear();
+            this.ProductsQuintity = -1;
+            this.ProductsQuantityBox.Clear();
+            
             this.ShowError("");
         }
         #endregion

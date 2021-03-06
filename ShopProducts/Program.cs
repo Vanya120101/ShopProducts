@@ -45,6 +45,7 @@ namespace ShopProducts
             IBaseController insertController = new InsertController(shopModel, new InsertControl("InsertControl"));
             IBaseController updateController = new UpdateController(shopModel, new UpdateControl("UpdateControl"));
             IBaseController deleteController = new DeleteController(shopModel, new DeleteControl("DeleteControl"));
+            IBaseController cartController = new CartController(shopModel, new CartControl("CartControl"));
 
             mainController.AddControler(registerContoller);
             mainController.AddControler(loginController);
@@ -54,6 +55,7 @@ namespace ShopProducts
             ((ShopProductsController)shopProductsContoller).AddPage(insertController, "Добавление");
             ((ShopProductsController)shopProductsContoller).AddPage(updateController, "Изменение");
             ((ShopProductsController)shopProductsContoller).AddPage(deleteController, "Удаление");
+            ((ShopProductsController)shopProductsContoller).AddPage(cartController, "Корзина");
 
 
 
