@@ -35,7 +35,7 @@ namespace ShopProducts.Models.ModelsDB
                             ProductsName = product["Name"],
                             ProductsQuantity = product["Quantity"],
                             ProductsPrice = product["Price"],
-                            SellersName = user["FirstName"].ToString() + user["SecondName"].ToString()
+                            SellersName = user["UsersLogin"]
                         };
 
 

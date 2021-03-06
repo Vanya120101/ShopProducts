@@ -47,7 +47,7 @@ namespace ShopProducts.Models
             errorMessage = error;
 
             if (!string.IsNullOrEmpty(errorMessage))
-            { 
+            {
                 return;
             }
 
@@ -65,7 +65,7 @@ namespace ShopProducts.Models
         #region Product
         public void DeleteProduct(string productName, out string errorMessage)
         {
-            products.DeleteProudct(productName, out string error);
+            products.DeleteProudct(users.CurrentUserId, productName, out string error);
             errorMessage = error;
         }
 
@@ -83,7 +83,7 @@ namespace ShopProducts.Models
 
         public void UpdateProduct(string productName, int productQuantity, int productPrice, out string errorMessage)
         {
-            this.products.ChangeProduct(productName, productQuantity, productPrice, out string error);
+            this.products.ChangeProduct(users.CurrentUserId, productName, productQuantity, productPrice, out string error);
             errorMessage = error;
         }
 

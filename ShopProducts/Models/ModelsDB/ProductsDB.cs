@@ -22,7 +22,7 @@ namespace ShopProducts.Models
         {
             productsTable = LoadOperationModelDB.Products as DataTable;
         }
-        public void ChangeProduct(string productName, int priceProduct, int quantityProduct, out string errorMessage)
+        public void ChangeProduct(int userId, string productName, int priceProduct, int quantityProduct, out string errorMessage)
         {
             errorMessage = "";
 
@@ -44,10 +44,20 @@ namespace ShopProducts.Models
             {
                 if ((int)product["ProductId"] == productId)
                 {
-                    product["Price"] = priceProduct;
-                    product["Quantity"] = quantityProduct;
+                    if ((int)product["UserId"] == userId)
+                    {
+                        product["Price"] = priceProduct;
+                        product["Quantity"] = quantityProduct;
+                    }
+                    else
+                    {
+                        errorMessage = "Продукт не принадлежит вам";
+                        return;
+                    }
                 }
             }
+
+            this.Update();
         }
 
         public void AddProduct(int userId, string productName, int productQuantity, int price, out string errorMessage)
@@ -93,7 +103,7 @@ namespace ShopProducts.Models
             productsTable.Rows.Add(newProduct);
             this.Update();
         }
-        public void DeleteProudct(string productName, out string errorMessage)
+        public void DeleteProudct(int userId, string productName, out string errorMessage)
         {
             errorMessage = "";
 
@@ -105,9 +115,20 @@ namespace ShopProducts.Models
             }
             foreach (DataRow product in productsTable.Rows)
             {
+                
+
                 if ((int)product["ProductId"]==productId)
                 {
-                    product.Delete();
+                    if ((int)product["UserId"] == userId)
+                    {
+                        product.Delete();
+
+                    }
+                    else
+                    {
+                        errorMessage = "Продукт не принадлежит вам";
+                        return;
+                    }
                 }
             }
             this.Update();
@@ -193,8 +214,8 @@ namespace ShopProducts.Models
                                     SELECT ProductId FROM Products WHERE ProductId = @@IDENTITY";
 
             SqlCommand insertCommand = new SqlCommand(commandString, DataContext.GetConnection());
-            insertCommand.Parameters.AddWithValue("UserId", product["UserId"]);
-            insertCommand.Parameters.AddWithValue("Name", product["Name"]);
+            insertCommand.Parameters.AddWithValue("@UserId", product["UserId"]);
+            insertCommand.Parameters.AddWithValue("@Name", product["Name"]);
             insertCommand.Parameters.AddWithValue("@Quantity", product["Quantity"]);
             insertCommand.Parameters.AddWithValue("@Price", product["Price"]);
 
@@ -211,16 +232,24 @@ namespace ShopProducts.Models
         private void ModifyProduct(DataRow product)
         {
 
-            string commandString = "UPDATE Products " +
-                                   "SET Name = @Name," +
-                                   "Price = @Price," +
-                                   "Quantity= @Quantity" +
-                                   "WHERE ProductId = @ProductId";
+            //string commandString = "UPDATE Products " +
+            //                       "SET Name = @Name," +
+            //                       "Price = @Price," +
+            //                       "Quantity= @Quantity" +
+            //                       "WHERE ProductId == @ProductId";
+
+            string commandString = @"UPDATE Products
+                                    SET Name = @Name,
+                                    Price = @Price,
+                                    Quantity = @Quantity
+                                    WHERE ProductId = @ProductId";
 
             SqlCommand modifyCommand = new SqlCommand(commandString, DataContext.GetConnection());
-            modifyCommand.Parameters.AddWithValue("Name", product["Name"]);
-            modifyCommand.Parameters.AddWithValue("Price", product["Price"]);
-            modifyCommand.Parameters.AddWithValue("Quantity", product["Quantity"]);
+            modifyCommand.Parameters.AddWithValue("@Name", product["Name"]);
+            modifyCommand.Parameters.AddWithValue("@Price", product["Price"]);
+            modifyCommand.Parameters.AddWithValue("@Quantity", product["Quantity"]);
+            modifyCommand.Parameters.AddWithValue("@ProductId", (int)product["ProductId"]);
+
 
             DataContext.OpenConnection();
             modifyCommand.ExecuteNonQuery();
