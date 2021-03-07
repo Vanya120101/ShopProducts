@@ -67,7 +67,6 @@ namespace ShopProducts.Models
                 DataRow newUser = usersTable.NewRow();
                 newUser["UsersLogin"] = login;
                 newUser["Password"] = password;
-                newUser["FirstName"] = login;
                 usersTable.Rows.Add(newUser);
                 this.Update();
             }
@@ -138,15 +137,12 @@ namespace ShopProducts.Models
         private void InsertUser(DataRow user)
         {
             string commandString = @"INSERT Users
-                                    VALUES (@UsersLogin, @Password, @FirstName, @SecondName, @Age);
+                                    VALUES (@UsersLogin, @Password);
                                     SELECT UserId FROM Users WHERE UserId = @@IDENTITY";
 
             SqlCommand insertCommand = new SqlCommand(commandString, DataContext.GetConnection());
             insertCommand.Parameters.AddWithValue("UsersLogin", user["UsersLogin"]);
             insertCommand.Parameters.AddWithValue("Password", user["Password"]);
-            insertCommand.Parameters.AddWithValue("@FirstName", user["FirstName"]);
-            insertCommand.Parameters.AddWithValue("@SecondName", user["SecondName"]);
-            insertCommand.Parameters.AddWithValue("@Age", user["Age"]);
 
 
             DataContext.OpenConnection();
@@ -160,19 +156,19 @@ namespace ShopProducts.Models
 
         private void ModifyUser(DataRow user)
         {
-            string commandString = "UPDATE Customers " +
-                                   "SET FirstName = @FirstName," +
-                                   "SecondName = @SecondName," +
-                                   "Age= @Age";
+            //string commandString = "UPDATE Customers " +
+            //                       "SET FirstName = @FirstName," +
+            //                       "SecondName = @SecondName," +
+            //                       "Age= @Age";
 
-            SqlCommand modifyCommand = new SqlCommand(commandString, DataContext.GetConnection());
-            modifyCommand.Parameters.AddWithValue("FirstName", user["FirstName"]);
-            modifyCommand.Parameters.AddWithValue("SecondName", user["SecondName"]);
-            modifyCommand.Parameters.AddWithValue("Age", user["Age"]);
+            //SqlCommand modifyCommand = new SqlCommand(commandString, DataContext.GetConnection());
+            //modifyCommand.Parameters.AddWithValue("FirstName", user["FirstName"]);
+            //modifyCommand.Parameters.AddWithValue("SecondName", user["SecondName"]);
+            //modifyCommand.Parameters.AddWithValue("Age", user["Age"]);
 
-            DataContext.OpenConnection();
-            modifyCommand.ExecuteNonQuery();
-            DataContext.CloseConnection();
+            //DataContext.OpenConnection();
+            //modifyCommand.ExecuteNonQuery();
+            //DataContext.CloseConnection();
         }
 
         #endregion
