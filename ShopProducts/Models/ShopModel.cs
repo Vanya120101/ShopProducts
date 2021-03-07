@@ -56,6 +56,23 @@ namespace ShopProducts.Models
             orders.AddOrder(userId, productId, productQuantity);
         }
 
+        public void DeleteOrder(string productName, out string errorMessage)
+        {
+            int userId = users.CurrentUserId;
+            int productId = products.GetProductId(productName, out string error);
+            errorMessage = error;
+
+            if (!string.IsNullOrEmpty(errorMessage))
+            {
+                return;
+            }
+
+            orders.DeleteOrderFromCart(userId, productId, out string errorMes);
+            errorMessage = errorMes;
+
+
+        }
+
         public object GetUsersOrders()
         {
             return this.orders.GetUsersOrders(users.CurrentUserId);

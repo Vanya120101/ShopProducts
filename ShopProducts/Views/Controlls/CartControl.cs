@@ -29,6 +29,7 @@ namespace ShopProducts.Views.Controlls
 
 
         public string ProductsName { get => this.ProductsNameBox.Text; set => this.ProductsNameBox.Text = value; }
+        public string ProductsNameForDelete { get => this.NameProductForDeleteBox.Text; set => this.NameProductForDeleteBox.Text = value; }
         public int ProductsQuintity
         {
             get
@@ -48,6 +49,8 @@ namespace ShopProducts.Views.Controlls
 
 
         public event Action AddIntoCart;
+        public event Action DeleteFromCart;
+
         public event Action CloseForm;
 
         public void Close()
@@ -82,6 +85,9 @@ namespace ShopProducts.Views.Controlls
             this.ProductsNameBox.Clear();
             this.ProductsQuintity = -1;
             this.ProductsQuantityBox.Clear();
+
+            this.ProductsNameForDelete = null;
+            this.NameProductForDeleteBox.Clear();
             
             this.ShowError("");
         }
@@ -98,5 +104,10 @@ namespace ShopProducts.Views.Controlls
             this.CloseForm?.Invoke();
         }
         #endregion
+
+        private void DeleteProductFromCartButton_Click(object sender, EventArgs e)
+        {
+            this.DeleteFromCart?.Invoke();
+        }
     }
 }

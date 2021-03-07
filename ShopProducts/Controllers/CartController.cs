@@ -33,8 +33,23 @@ namespace ShopProducts.Controllers
         private void Initialize()
         {
             this.cartControl.AddIntoCart += CartControl_AddIntoCart;
+            this.cartControl.DeleteFromCart += CartControl_DeleteFromCart;
             this.cartControl.UsersOrders = this.shopModel.GetUsersOrders();
+
             this.cartControl.UpdateForm();
+        }
+
+        private void CartControl_DeleteFromCart()
+        {
+            shopModel.DeleteOrder(cartControl.ProductsNameForDelete, out string errorMessage);
+            if (string.IsNullOrEmpty(errorMessage))
+            {
+                cartControl.Clear();
+            }
+            else
+            {
+                cartControl.ShowError(errorMessage);
+            }
         }
 
         private void CartControl_AddIntoCart()

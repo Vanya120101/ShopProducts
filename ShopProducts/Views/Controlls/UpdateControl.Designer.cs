@@ -48,9 +48,9 @@ namespace ShopProducts.Views.Controlls
             this.UpdateProductButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.UpdateProductButton.Location = new System.Drawing.Point(30, 140);
             this.UpdateProductButton.Name = "UpdateProductButton";
-            this.UpdateProductButton.Size = new System.Drawing.Size(133, 41);
+            this.UpdateProductButton.Size = new System.Drawing.Size(138, 41);
             this.UpdateProductButton.TabIndex = 21;
-            this.UpdateProductButton.Text = "Добавить";
+            this.UpdateProductButton.Text = "Обновить";
             this.UpdateProductButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.UpdateProductButton.UseVisualStyleBackColor = true;
             this.UpdateProductButton.Click += new System.EventHandler(this.UpdateProductButton_Click);

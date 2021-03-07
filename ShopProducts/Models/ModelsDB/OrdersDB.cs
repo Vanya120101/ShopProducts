@@ -36,12 +36,28 @@ namespace ShopProducts.Models
             ordersTable.Rows.Add(newOrder);
             this.Update();
         }
+
+        public void DeleteOrderFromCart(int userId, int productId, out string errorMessage)
+        {
+            errorMessage = "Заказа с таким имененем не найдено";
+            foreach (DataRow order in ordersTable.Rows)
+            {
+                
+                if ((int)order["ProductId"] == productId)
+                {
+                    if ((int)order["UserId"] == userId)
+                    {
+                        order.Delete();
+                        errorMessage = "";
+                        break;
+                    }
+                }
+            }
+
+            this.Update();
+        }
   
-        /// <summary>
-        /// Получить заказы пользователя.
-        /// </summary>
-        /// <param name="UserId">Id пользователя</param>
-        /// <returns>Заказы пользователя</returns>
+
        
 
         public object GetUsersOrders(int UserId)
@@ -83,7 +99,7 @@ namespace ShopProducts.Models
                                     WHERE OrderId = @OrderId";
 
             SqlCommand deleteCommand = new SqlCommand(commandString, DataContext.GetConnection());
-            deleteCommand.Parameters.AddWithValue("OrderId", user["OrderId"]);
+            deleteCommand.Parameters.AddWithValue("OrderId", user["OrderId", DataRowVersion.Original]);
 
 
 

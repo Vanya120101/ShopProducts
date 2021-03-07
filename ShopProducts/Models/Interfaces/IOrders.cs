@@ -12,5 +12,6 @@ namespace ShopProducts.Models.Interfaces
         void Update();
         void AddOrder(int userId, int productId, int quantityProduct);
         object GetUsersOrders(int UserId);
+        void DeleteOrderFromCart(int userId, int productId, out string errorMessage);
     }
 }

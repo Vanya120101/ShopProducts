@@ -18,6 +18,7 @@ namespace ShopProducts.Infrastructure
             forms = new List<IBaseForm>();
         }
 
+
         public static void AddForm(IBaseForm form)
         {
             forms.Add(form);

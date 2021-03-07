@@ -16,5 +16,6 @@ namespace ShopProducts.Models.Interfaces
         void EnterAccount(string login, string password, out string errorMessage);
         void RegisterAccount(string login, string password, out string errorMessage);
         object GetUsersOrders();
+        void DeleteOrder(string productName, out string errorMessage);
     }
 }

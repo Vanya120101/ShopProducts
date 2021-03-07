@@ -37,6 +37,9 @@ namespace ShopProducts.Views.Controlls
             this.ProductsNameBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.NameProductForDeleteBox = new System.Windows.Forms.TextBox();
+            this.DeleteProductFromCartButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.UserProductsTable)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -58,7 +61,7 @@ namespace ShopProducts.Views.Controlls
             this.ErrorLabel.AutoSize = true;
             this.ErrorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ErrorLabel.ForeColor = System.Drawing.Color.Red;
-            this.ErrorLabel.Location = new System.Drawing.Point(350, 20);
+            this.ErrorLabel.Location = new System.Drawing.Point(669, 20);
             this.ErrorLabel.Name = "ErrorLabel";
             this.ErrorLabel.Size = new System.Drawing.Size(0, 29);
             this.ErrorLabel.TabIndex = 25;
@@ -117,6 +120,9 @@ namespace ShopProducts.Views.Controlls
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.NameProductForDeleteBox);
+            this.panel1.Controls.Add(this.DeleteProductFromCartButton);
             this.panel1.Controls.Add(this.ErrorLabel);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.ProductsNameBox);
@@ -128,6 +134,40 @@ namespace ShopProducts.Views.Controlls
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(725, 163);
             this.panel1.TabIndex = 26;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.Location = new System.Drawing.Point(356, 20);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(126, 29);
+            this.label3.TabIndex = 26;
+            this.label3.Text = "Название";
+            // 
+            // NameProductForDeleteBox
+            // 
+            this.NameProductForDeleteBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.NameProductForDeleteBox.Location = new System.Drawing.Point(506, 20);
+            this.NameProductForDeleteBox.Name = "NameProductForDeleteBox";
+            this.NameProductForDeleteBox.Size = new System.Drawing.Size(100, 34);
+            this.NameProductForDeleteBox.TabIndex = 27;
+            // 
+            // DeleteProductFromCartButton
+            // 
+            this.DeleteProductFromCartButton.AutoSize = true;
+            this.DeleteProductFromCartButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.DeleteProductFromCartButton.FlatAppearance.BorderSize = 0;
+            this.DeleteProductFromCartButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DeleteProductFromCartButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.DeleteProductFromCartButton.Location = new System.Drawing.Point(356, 110);
+            this.DeleteProductFromCartButton.Name = "DeleteProductFromCartButton";
+            this.DeleteProductFromCartButton.Size = new System.Drawing.Size(262, 41);
+            this.DeleteProductFromCartButton.TabIndex = 28;
+            this.DeleteProductFromCartButton.Text = "Удалить из корзины";
+            this.DeleteProductFromCartButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.DeleteProductFromCartButton.UseVisualStyleBackColor = true;
+            this.DeleteProductFromCartButton.Click += new System.EventHandler(this.DeleteProductFromCartButton_Click);
             // 
             // CartControl
             // 
@@ -154,5 +194,8 @@ namespace ShopProducts.Views.Controlls
         private System.Windows.Forms.TextBox ProductsNameBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox NameProductForDeleteBox;
+        private System.Windows.Forms.Button DeleteProductFromCartButton;
     }
 }
